@@ -902,6 +902,30 @@ namespace WindowsFormsApplication1
                     Append_stb(strLoc);
 
                 }
+
+                if (dctCBOPeeps[i].Contains("JoeV"))
+                {
+                    string strLoc = string.Empty;
+
+                    strLoc = SetHexPosition(i, strLoc);
+
+                    //strSex = strSex.Replace("m", "8");
+                    strBrave = strBrave.Replace("mn", "46");
+                    strFaith = strFaith.Replace("mn", "32");
+                    strHPMid = strHPMid.Replace("n", "8");
+                    strHPHigh = strHPHigh.Replace("m", "A");
+                    strMPMid = strMPMid.Replace("n", "A");
+                    strMPHigh = strMPHigh.Replace("m", "0");
+                    strSpdMid = strSpdMid.Replace("n", "4");
+                    strSpdHigh = strSpdHigh.Replace("m", "1");
+                    strPAMid = strPAMid.Replace("n", "C");
+                    strPAHigh = strPAHigh.Replace("m", "1");
+                    strMAMid = strMAMid.Replace("n", "0");
+                    strMAHigh = strMAHigh.Replace("m", "1");
+                    intCounter++;
+                    Append_stb(strLoc);
+
+                }
             }
             return intCounter;
         }
