@@ -1,35 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.IO;
 
-
-namespace WindowsFormsApplication1
+namespace FFTCharacterGenerator
 {
     public partial class Cheat : Form
     {
-        private string strSex = "3005xx78 00m0";
-        private string strBrave = "3005xx8B 00mn";
-        private string strFaith = "3005xx8C 00mn";
-        private string strHPMid = "3005xx8E 00n0";
-        private string strHPHigh = "3005xx8F 000m";
-        private string strMPMid = "3005xx91 00n0";
-        private string strMPHigh = "3005xx92 000m";
-        private string strSpdMid = "3005xx94 00n0";
-        private string strSpdHigh = "3005xx95 000m";
-        private string strPAMid = "3005xx97 00n0";
-        private string strPAHigh = "3005xx98 000m";
-        private string strMAMid = "3005xx9A 00n0";
-        private string strMAHigh = "3005xx9B 000m";
         private DataSet dsNames = new DataSet();
         private StringBuilder stbCheatFile = new StringBuilder();
         private DataTable dtCBOValues = new DataTable();
-        Dictionary<int, string> dctCBOPeeps = new Dictionary<int, string>();
+        private Dictionary<int, string> dctCBOPeeps = new Dictionary<int, string>();
         private string strFilePath = string.Empty;
 
         public Cheat()
@@ -37,29 +21,12 @@ namespace WindowsFormsApplication1
             InitializeComponent();
         }
 
-        private DataTable ReadXMLtoDatatable(DataSet dsDataset) 
+        private DataTable ReadXMLtoDatatable(DataSet dsDataset)
         {
             DataTable dtNames;
             dsNames.ReadXml("NameList.xml");
             dtNames = dsDataset.Tables[0];
             return dtNames;
-        }
-
-        private void ResetStrings()
-        {
-         strSex = "3005xx78 00m0";
-         strBrave = "3005xx8B 00mn";
-         strFaith = "3005xx8C 00mn";
-         strHPMid = "3005xx8E 00n0";
-         strHPHigh = "3005xx8F 000m";
-         strMPMid = "3005xx91 00n0";
-         strMPHigh = "3005xx92 000m";
-         strSpdMid = "3005xx94 00n0";
-         strSpdHigh = "3005xx95 000m";
-         strPAMid = "3005xx97 00n0";
-         strPAHigh = "3005xx98 000m";
-         strMAMid = "3005xx9A 00n0";
-         strMAHigh = "3005xx9B 000m";
         }
 
         private void Cheat_Load(object sender, EventArgs e)
@@ -275,7 +242,7 @@ namespace WindowsFormsApplication1
                 {
                     MessageBox.Show("Internal Error. Fred is an idiot.");
                 }
-                {    
+                {
                     //Placefilewriter here
                     if (txtPath.Text != string.Empty)
                     {
@@ -303,7 +270,8 @@ namespace WindowsFormsApplication1
             stbCheatFile.Append("#Peeps " + DateTime.Now.Month + "\r\n");
             for (int i = 2; i <= 16; i++)
             {
-                ResetStrings();
+                FFTCharacter recruit = new FFTCharacter();
+                //bach.ResetStrings();
                 if (dctCBOPeeps[i].Contains("Bach"))
                 {
                     string strLoc = string.Empty;
@@ -348,7 +316,6 @@ namespace WindowsFormsApplication1
                     strMAHigh = strMAHigh.Replace("m", "1");
                     intCounter++;
                     Append_stb(strLoc);
-
                 }
                 if (dctCBOPeeps[i].Contains("Jamie"))
                 {
@@ -371,7 +338,6 @@ namespace WindowsFormsApplication1
                     strMAHigh = strMAHigh.Replace("m", "1");
                     intCounter++;
                     Append_stb(strLoc);
-
                 }
                 if (dctCBOPeeps[i].Contains("Hendo"))
                 {
@@ -394,7 +360,6 @@ namespace WindowsFormsApplication1
                     strMAHigh = strMAHigh.Replace("m", "1");
                     intCounter++;
                     Append_stb(strLoc);
-
                 }
                 if (dctCBOPeeps[i].Contains("Justin"))
                 {
@@ -417,7 +382,6 @@ namespace WindowsFormsApplication1
                     strMAHigh = strMAHigh.Replace("m", "1");
                     intCounter++;
                     Append_stb(strLoc);
-
                 }
                 if (dctCBOPeeps[i].Contains("Sobjack"))
                 {
@@ -440,7 +404,6 @@ namespace WindowsFormsApplication1
                     strMAHigh = strMAHigh.Replace("m", "1");
                     intCounter++;
                     Append_stb(strLoc);
-
                 }
                 if (dctCBOPeeps[i].Contains("Celine"))
                 {
@@ -463,7 +426,6 @@ namespace WindowsFormsApplication1
                     strMAHigh = strMAHigh.Replace("m", "1");
                     intCounter++;
                     Append_stb(strLoc);
-
                 }
                 if (dctCBOPeeps[i].Contains("Ina"))
                 {
@@ -486,7 +448,6 @@ namespace WindowsFormsApplication1
                     strMAHigh = strMAHigh.Replace("m", "1");
                     intCounter++;
                     Append_stb(strLoc);
-
                 }
                 if (dctCBOPeeps[i].Contains("Kouri"))
                 {
@@ -509,7 +470,6 @@ namespace WindowsFormsApplication1
                     strMAHigh = strMAHigh.Replace("m", "1");
                     intCounter++;
                     Append_stb(strLoc);
-
                 }
                 if (dctCBOPeeps[i].Contains("Shane"))
                 {
@@ -532,7 +492,6 @@ namespace WindowsFormsApplication1
                     strMAHigh = strMAHigh.Replace("m", "1");
                     intCounter++;
                     Append_stb(strLoc);
-
                 }
                 if (dctCBOPeeps[i].Contains("Drew"))
                 {
@@ -555,7 +514,6 @@ namespace WindowsFormsApplication1
                     strMAHigh = strMAHigh.Replace("m", "1");
                     intCounter++;
                     Append_stb(strLoc);
-
                 }
                 if (dctCBOPeeps[i].Contains("Chzuck"))
                 {
@@ -578,7 +536,6 @@ namespace WindowsFormsApplication1
                     strMAHigh = strMAHigh.Replace("m", "1");
                     intCounter++;
                     Append_stb(strLoc);
-
                 }
                 if (dctCBOPeeps[i].Contains("Brian"))
                 {
@@ -601,7 +558,6 @@ namespace WindowsFormsApplication1
                     strMAHigh = strMAHigh.Replace("m", "1");
                     intCounter++;
                     Append_stb(strLoc);
-
                 }
                 if (dctCBOPeeps[i].Contains("Eric"))
                 {
@@ -624,7 +580,6 @@ namespace WindowsFormsApplication1
                     strMAHigh = strMAHigh.Replace("m", "1");
                     intCounter++;
                     Append_stb(strLoc);
-
                 }
                 if (dctCBOPeeps[i].Contains("Ambrozy"))
                 {
@@ -647,7 +602,6 @@ namespace WindowsFormsApplication1
                     strMAHigh = strMAHigh.Replace("m", "1");
                     intCounter++;
                     Append_stb(strLoc);
-
                 }
                 if (dctCBOPeeps[i].Contains("Marz"))
                 {
@@ -670,7 +624,6 @@ namespace WindowsFormsApplication1
                     strMAHigh = strMAHigh.Replace("m", "1");
                     intCounter++;
                     Append_stb(strLoc);
-
                 }
                 if (dctCBOPeeps[i].Contains("Irwin"))
                 {
@@ -693,7 +646,6 @@ namespace WindowsFormsApplication1
                     strMAHigh = strMAHigh.Replace("m", "0");
                     intCounter++;
                     Append_stb(strLoc);
-
                 }
                 if (dctCBOPeeps[i].Contains("Billy"))
                 {
@@ -716,7 +668,6 @@ namespace WindowsFormsApplication1
                     strMAHigh = strMAHigh.Replace("m", "1");
                     intCounter++;
                     Append_stb(strLoc);
-
                 }
                 if (dctCBOPeeps[i].Contains("Bersche"))
                 {
@@ -739,7 +690,6 @@ namespace WindowsFormsApplication1
                     strMAHigh = strMAHigh.Replace("m", "1");
                     intCounter++;
                     Append_stb(strLoc);
-
                 }
                 if (dctCBOPeeps[i].Contains("Brad"))
                 {
@@ -762,7 +712,6 @@ namespace WindowsFormsApplication1
                     strMAHigh = strMAHigh.Replace("m", "1");
                     intCounter++;
                     Append_stb(strLoc);
-
                 }
                 if (dctCBOPeeps[i].Contains("Tom"))
                 {
@@ -785,7 +734,6 @@ namespace WindowsFormsApplication1
                     strMAHigh = strMAHigh.Replace("m", "1");
                     intCounter++;
                     Append_stb(strLoc);
-
                 }
                 if (dctCBOPeeps[i].Contains("Telka"))
                 {
@@ -808,7 +756,6 @@ namespace WindowsFormsApplication1
                     strMAHigh = strMAHigh.Replace("m", "1");
                     intCounter++;
                     Append_stb(strLoc);
-
                 }
                 if (dctCBOPeeps[i].Contains("Theime"))
                 {
@@ -831,7 +778,6 @@ namespace WindowsFormsApplication1
                     strMAHigh = strMAHigh.Replace("m", "1");
                     intCounter++;
                     Append_stb(strLoc);
-
                 }
                 if (dctCBOPeeps[i].Contains("Parks"))
                 {
@@ -854,7 +800,6 @@ namespace WindowsFormsApplication1
                     strMAHigh = strMAHigh.Replace("m", "1");
                     intCounter++;
                     Append_stb(strLoc);
-
                 }
                 if (dctCBOPeeps[i].Contains("Mike H"))
                 {
@@ -877,7 +822,6 @@ namespace WindowsFormsApplication1
                     strMAHigh = strMAHigh.Replace("m", "1");
                     intCounter++;
                     Append_stb(strLoc);
-
                 }
                 if (dctCBOPeeps[i].Contains("Jon"))
                 {
@@ -900,7 +844,6 @@ namespace WindowsFormsApplication1
                     strMAHigh = strMAHigh.Replace("m", "1");
                     intCounter++;
                     Append_stb(strLoc);
-
                 }
 
                 if (dctCBOPeeps[i].Contains("JoeV"))
@@ -924,7 +867,6 @@ namespace WindowsFormsApplication1
                     strMAHigh = strMAHigh.Replace("m", "1");
                     intCounter++;
                     Append_stb(strLoc);
-
                 }
             }
             return intCounter;
@@ -1027,21 +969,18 @@ namespace WindowsFormsApplication1
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
-
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-
         }
 
         //private bool CheckForDupes()
-        //{ 
+        //{
         //    bool blnDupes = false;
-        //    blnDupes = 
+        //    blnDupes =
         //    return !blnDupes;
         //}
-
 
         //private bool CheckControls()
         //{
