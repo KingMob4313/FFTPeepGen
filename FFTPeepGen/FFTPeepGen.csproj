@@ -91,6 +91,7 @@
     <Compile Include="Cheat.Designer.cs">
       <DependentUpon>Cheat.cs</DependentUpon>
     </Compile>
+    <Compile Include="FFTCharacter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Cheat.resx">

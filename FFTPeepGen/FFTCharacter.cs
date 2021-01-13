@@ -21,7 +21,9 @@ namespace FFTCharacterGenerator
         public string strMAMid = "3005xx9A 00n0";
         public string strMAHigh = "3005xx9B 000m";
 
-        public virtual void SetCharacterStats<FFTCharacter>();
+        public virtual void SetCharacterStats<FFTCharacter>()
+        {
+        }
 
         public void ResetStrings()
         {
