@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace FFTCharacterGenerator
+﻿namespace FFTCharacterGenerator
 {
     public class FFTCharacter
     {
+        public string strName = "Nullo";
         public string strSex = "3005xx78 00m0";
         public string strBrave = "3005xx8B 00mn";
         public string strFaith = "3005xx8C 00mn";
@@ -27,6 +23,7 @@ namespace FFTCharacterGenerator
 
         public void ResetStrings()
         {
+            strName = "Nullo";
             strSex = "3005xx78 00m0";
             strBrave = "3005xx8B 00mn";
             strFaith = "3005xx8C 00mn";

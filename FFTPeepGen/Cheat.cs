@@ -272,7 +272,7 @@ namespace FFTCharacterGenerator
             {
                 FFTCharacter recruit = new FFTCharacter();
                 //bach.ResetStrings();
-                if (dctCBOPeeps[i].Contains("Bach"))
+                if (dctCBOPeeps[i].Contains("CatNoir"))
                 {
                     string strLoc = string.Empty;
 
@@ -405,7 +405,7 @@ namespace FFTCharacterGenerator
                     intCounter++;
                     Append_stb(strLoc, recruit);
                 }
-                if (dctCBOPeeps[i].Contains("Celine"))
+                if (dctCBOPeeps[i].Contains("Huntress"))
                 {
                     string strLoc = string.Empty;
 
@@ -691,7 +691,7 @@ namespace FFTCharacterGenerator
                     intCounter++;
                     Append_stb(strLoc, recruit);
                 }
-                if (dctCBOPeeps[i].Contains("Brad"))
+                if (dctCBOPeeps[i].Contains("Brandon"))
                 {
                     string strLoc = string.Empty;
 
@@ -757,7 +757,7 @@ namespace FFTCharacterGenerator
                     intCounter++;
                     Append_stb(strLoc, recruit);
                 }
-                if (dctCBOPeeps[i].Contains("Theime"))
+                if (dctCBOPeeps[i].Contains("Thieme"))
                 {
                     string strLoc = string.Empty;
 
@@ -801,7 +801,7 @@ namespace FFTCharacterGenerator
                     intCounter++;
                     Append_stb(strLoc, recruit);
                 }
-                if (dctCBOPeeps[i].Contains("Mike H"))
+                if (dctCBOPeeps[i].Contains("Satan"))
                 {
                     string strLoc = string.Empty;
 
@@ -854,7 +854,7 @@ namespace FFTCharacterGenerator
 
                     //strSex = strSex.Replace("m", "8");
                     recruit.strBrave = recruit.strBrave.Replace("mn", "46");
-                    recruit.strFaith = recruit.strFaith.Replace("mn", "32");
+                    recruit.strFaith = recruit.strFaith.Replace("mn", "28");
                     recruit.strHPMid = recruit.strHPMid.Replace("n", "8");
                     recruit.strHPHigh = recruit.strHPHigh.Replace("m", "A");
                     recruit.strMPMid = recruit.strMPMid.Replace("n", "A");
@@ -868,8 +868,73 @@ namespace FFTCharacterGenerator
                     intCounter++;
                     Append_stb(strLoc, recruit);
                 }
+                if (dctCBOPeeps[i].Contains("Liam"))
+                {
+                    string strLoc = string.Empty;
+
+                    strLoc = SetHexPosition(i, strLoc);
+
+                    //strSex = strSex.Replace("m", "8");
+                    recruit.strBrave = recruit.strBrave.Replace("mn", "55");
+                    recruit.strFaith = recruit.strFaith.Replace("mn", "32");
+                    recruit.strHPMid = recruit.strHPMid.Replace("n", "0");
+                    recruit.strHPHigh = recruit.strHPHigh.Replace("m", "8");
+                    recruit.strMPMid = recruit.strMPMid.Replace("n", "0");
+                    recruit.strMPHigh = recruit.strMPHigh.Replace("m", "4");
+                    recruit.strSpdMid = recruit.strSpdMid.Replace("n", "5");
+                    recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "2");
+                    recruit.strPAMid = recruit.strPAMid.Replace("n", "6");
+                    recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
+                    recruit.strMAMid = recruit.strMAMid.Replace("n", "0");
+                    recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+                    intCounter++;
+                    Append_stb(strLoc, recruit);
+                }
+                if (dctCBOPeeps[i].Contains("Fallout"))
+                {
+                    string strLoc = string.Empty;
+
+                    strLoc = SetHexPosition(i, strLoc);
+
+                    //strSex = strSex.Replace("m", "8");
+                    recruit.strBrave = recruit.strBrave.Replace("mn", "50");
+                    recruit.strFaith = recruit.strFaith.Replace("mn", "32");
+                    recruit.strHPMid = recruit.strHPMid.Replace("n", "0");
+                    recruit.strHPHigh = recruit.strHPHigh.Replace("m", "8");
+                    recruit.strMPMid = recruit.strMPMid.Replace("n", "0");
+                    recruit.strMPHigh = recruit.strMPHigh.Replace("m", "4");
+                    recruit.strSpdMid = recruit.strSpdMid.Replace("n", "A");
+                    recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "2");
+                    recruit.strPAMid = recruit.strPAMid.Replace("n", "4");
+                    recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
+                    recruit.strMAMid = recruit.strMAMid.Replace("n", "0");
+                    recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+                    intCounter++;
+                    Append_stb(strLoc, recruit);
+                }
             }
             return intCounter;
+        }
+
+        private FFTCharacter FillRecruitStats(string name, string braveStat, string faithStat, string HPMidBits, string HPHighBits, string MPMidBits, string MPHighBits, string speedMidBits, string speedHighBits, string physAttackMidBits, string physAttackHighBits, string magicAttackMidBits, string magicAttackHighBits)
+        {
+            FFTCharacter currentCharacter = new FFTCharacter();
+
+            currentCharacter.strName = currentCharacter.strBrave.Replace("Nullo", name);
+            currentCharacter.strBrave = currentCharacter.strBrave.Replace("mn", braveStat);
+            currentCharacter.strFaith = currentCharacter.strFaith.Replace("mn", faithStat);
+            currentCharacter.strHPMid = currentCharacter.strHPMid.Replace("n", HPMidBits);
+            currentCharacter.strHPHigh = currentCharacter.strHPHigh.Replace("m", HPHighBits);
+            currentCharacter.strMPMid = currentCharacter.strMPMid.Replace("n", MPMidBits);
+            currentCharacter.strMPHigh = currentCharacter.strMPHigh.Replace("m", MPHighBits);
+            currentCharacter.strSpdMid = currentCharacter.strSpdMid.Replace("n", speedMidBits);
+            currentCharacter.strSpdHigh = currentCharacter.strSpdHigh.Replace("m", speedHighBits);
+            currentCharacter.strPAMid = currentCharacter.strPAMid.Replace("n", physAttackMidBits);
+            currentCharacter.strPAHigh = currentCharacter.strPAHigh.Replace("m", physAttackHighBits);
+            currentCharacter.strMAMid = currentCharacter.strMAMid.Replace("n", magicAttackMidBits);
+            currentCharacter.strMAHigh = currentCharacter.strMAHigh.Replace("m", magicAttackHighBits);
+
+            return currentCharacter;
         }
 
         private static string SetHexPosition(int i, string strLoc)
