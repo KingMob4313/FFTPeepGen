@@ -24,7 +24,7 @@ namespace FFTCharacterGenerator
         private DataTable ReadXMLtoDatatable(DataSet dsDataset)
         {
             DataTable dtNames;
-            dsNames.ReadXml("NameList.xml");
+            dsNames.ReadXml("Properties/NameList.xml");
             dtNames = dsDataset.Tables[0];
             return dtNames;
         }
@@ -123,6 +123,10 @@ namespace FFTCharacterGenerator
             dctCBOPeeps.Clear();
             if (dctCBOPeeps.Count < 1)
             {
+                //foreach (KeyValuePair<int, string> entry in dctCBOPeeps)
+                //{
+
+                //}
                 dctCBOPeeps.Add(2, cboTwo.Text.ToString());
                 dctCBOPeeps.Add(3, cboThree.Text.ToString());
                 dctCBOPeeps.Add(4, cboFour.Text.ToString());
@@ -238,10 +242,11 @@ namespace FFTCharacterGenerator
                 //}
                 //Generate codes for all Peeps
                 intCounter = PeepCodes(intCounter);
-                if (intCounter < 15)
+                if (intCounter < 14)
                 {
                     MessageBox.Show("Internal Error. Fred is an idiot.");
                 }
+                else
                 {
                     //Placefilewriter here
                     if (txtPath.Text != string.Empty)
@@ -272,380 +277,440 @@ namespace FFTCharacterGenerator
             {
                 FFTCharacter recruit = new FFTCharacter();
                 //bach.ResetStrings();
-                if (dctCBOPeeps[i].Contains("CatNoir"))
+                string tempName = "CatNoir";
+                if (dctCBOPeeps[i].Contains(tempName))
                 {
                     string strLoc = string.Empty;
 
                     strLoc = SetHexPosition(i, strLoc);
+                    recruit = FillRecruitStats(tempName, "3C", "50", "E", "4", "8", "7", "8", "1", "E", "0", "E", "1");
+                    recruit.strSex = recruit.strSex.Replace("m", "4");
 
-                    //strSex = strSex.Replace("m", "8");
-                    recruit.strBrave = recruit.strBrave.Replace("mn", "3C");
-                    recruit.strFaith = recruit.strFaith.Replace("mn", "50");
-                    recruit.strHPMid = recruit.strHPMid.Replace("n", "E");
-                    recruit.strHPHigh = recruit.strHPHigh.Replace("m", "4");
-                    recruit.strMPMid = recruit.strMPMid.Replace("n", "8");
-                    recruit.strMPHigh = recruit.strMPHigh.Replace("m", "7");
-                    recruit.strSpdMid = recruit.strSpdMid.Replace("n", "8");
-                    recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
-                    recruit.strPAMid = recruit.strPAMid.Replace("n", "E");
-                    recruit.strPAHigh = recruit.strPAHigh.Replace("m", "0");
-                    recruit.strMAMid = recruit.strMAMid.Replace("n", "E");
-                    recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+                    //recruit.strBrave = recruit.strBrave.Replace("mn", "3C");
+                    //recruit.strFaith = recruit.strFaith.Replace("mn", "50");
+                    //recruit.strHPMid = recruit.strHPMid.Replace("n", "E");
+                    //recruit.strHPHigh = recruit.strHPHigh.Replace("m", "4");
+                    //recruit.strMPMid = recruit.strMPMid.Replace("n", "8");
+                    //recruit.strMPHigh = recruit.strMPHigh.Replace("m", "7");
+                    //recruit.strSpdMid = recruit.strSpdMid.Replace("n", "8");
+                    //recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
+                    //recruit.strPAMid = recruit.strPAMid.Replace("n", "E");
+                    //recruit.strPAHigh = recruit.strPAHigh.Replace("m", "0");
+                    //recruit.strMAMid = recruit.strMAMid.Replace("n", "E");
+                    //recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
                     intCounter++;
-                    Append_stb(strLoc, recruit);
+                    Append_CheatFile(strLoc, recruit);
                     //dctCBOPeeps.Remove(i);
                 }
-                if (dctCBOPeeps[i].Contains("Fred"))
+                tempName = "Fred";
+                if (dctCBOPeeps[i].Contains(tempName))
                 {
                     string strLoc = string.Empty;
 
                     strLoc = SetHexPosition(i, strLoc);
+                    recruit = FillRecruitStats(tempName, "46", "37", "0", "8", "E", "1", "0", "2", "4", "1", "4", "1");
+                    recruit.strSex = recruit.strSex.Replace("m", "8");
+
+                    //recruit.strName = tempName;
+                    //recruit.strBrave = recruit.strBrave.Replace("mn", "46");
+                    //recruit.strFaith = recruit.strFaith.Replace("mn", "37");
+                    //recruit.strHPMid = recruit.strHPMid.Replace("n", "0");
+                    //recruit.strHPHigh = recruit.strHPHigh.Replace("m", "8");
+                    //recruit.strMPMid = recruit.strMPMid.Replace("n", "E");
+                    //recruit.strMPHigh = recruit.strMPHigh.Replace("m", "1");
+                    //recruit.strSpdMid = recruit.strSpdMid.Replace("n", "0");
+                    //recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "2");
+                    //recruit.strPAMid = recruit.strPAMid.Replace("n", "4");
+                    //recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
+                    //recruit.strMAMid = recruit.strMAMid.Replace("n", "4");
+                    //recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+
+                    intCounter++;
+                    Append_CheatFile(strLoc, recruit);
+                }
+                tempName = "Jamie";
+                if (dctCBOPeeps[i].Contains(tempName))
+                {
+                    string strLoc = string.Empty;
+
+                    strLoc = SetHexPosition(i, strLoc);
+                    recruit = FillRecruitStats(tempName, "32", "46", "0", "8", "6", "4", "C", "1", "4", "1", "4", "1");
+
+                    ////strSex = strSex.Replace("m", "8");
+                    //recruit.strBrave = recruit.strBrave.Replace("mn", "32");
+                    //recruit.strFaith = recruit.strFaith.Replace("mn", "46");
+                    //recruit.strHPMid = recruit.strHPMid.Replace("n", "0");
+                    //recruit.strHPHigh = recruit.strHPHigh.Replace("m", "8");
+                    //recruit.strMPMid = recruit.strMPMid.Replace("n", "6");
+                    //recruit.strMPHigh = recruit.strMPHigh.Replace("m", "4");
+                    //recruit.strSpdMid = recruit.strSpdMid.Replace("n", "C");
+                    //recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
+                    //recruit.strPAMid = recruit.strPAMid.Replace("n", "4");
+                    //recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
+                    //recruit.strMAMid = recruit.strMAMid.Replace("n", "4");
+                    //recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+
+                    intCounter++;
+                    Append_CheatFile(strLoc, recruit);
+                }
+                tempName = "Hendo";
+                if (dctCBOPeeps[i].Contains(tempName))
+                {
+                    string strLoc = string.Empty;
+
+                    strLoc = SetHexPosition(i, strLoc);
+
+                    recruit = FillRecruitStats(tempName, "37", "3C", "A", "8", "6", "4", "8", "1", "6", "1", "4", "1");
+
+                    //recruit.strSex = recruit.strSex.Replace("m", "8");
+                    //recruit.strBrave = recruit.strBrave.Replace("mn", "37");
+                    //recruit.strFaith = recruit.strFaith.Replace("mn", "3C");
+                    //recruit.strHPMid = recruit.strHPMid.Replace("n", "A");
+                    //recruit.strHPHigh = recruit.strHPHigh.Replace("m", "8");
+                    //recruit.strMPMid = recruit.strMPMid.Replace("n", "6");
+                    //recruit.strMPHigh = recruit.strMPHigh.Replace("m", "4");
+                    //recruit.strSpdMid = recruit.strSpdMid.Replace("n", "8");
+                    //recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
+                    //recruit.strPAMid = recruit.strPAMid.Replace("n", "6");
+                    //recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
+                    //recruit.strMAMid = recruit.strMAMid.Replace("n", "4");
+                    //recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+
+                    intCounter++;
+                    Append_CheatFile(strLoc, recruit);
+                }
+                tempName = "Justin";
+                if (dctCBOPeeps[i].Contains(tempName))
+                {
+                    string strLoc = string.Empty;
+
+                    strLoc = SetHexPosition(i, strLoc);
+
+                    recruit = FillRecruitStats(tempName, "46", "28", "2", "B", "A", "0", "4", "1", "C", "1", "0", "1");
+
+                    ////strSex = strSex.Replace("m", "8");
+                    //recruit.strBrave = recruit.strBrave.Replace("mn", "46");
+                    //recruit.strFaith = recruit.strFaith.Replace("mn", "28");
+                    //recruit.strHPMid = recruit.strHPMid.Replace("n", "2");
+                    //recruit.strHPHigh = recruit.strHPHigh.Replace("m", "B");
+                    //recruit.strMPMid = recruit.strMPMid.Replace("n", "A");
+                    //recruit.strMPHigh = recruit.strMPHigh.Replace("m", "0");
+                    //recruit.strSpdMid = recruit.strSpdMid.Replace("n", "4");
+                    //recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
+                    //recruit.strPAMid = recruit.strPAMid.Replace("n", "C");
+                    //recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
+                    //recruit.strMAMid = recruit.strMAMid.Replace("n", "0");
+                    //recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+
+                    intCounter++;
+                    Append_CheatFile(strLoc, recruit);
+                }
+                tempName = "Sobjack";
+                if (dctCBOPeeps[i].Contains(tempName))
+                {
+                    string strLoc = string.Empty;
+
+                    strLoc = SetHexPosition(i, strLoc);
+
+                    recruit = FillRecruitStats(tempName, "50", "2D", "A", "8", "2", "3", "8", "1", "8", "1", "2", "1");
 
                     //strSex = strSex.Replace("m", "8");
-                    recruit.strBrave = recruit.strBrave.Replace("mn", "46");
-                    recruit.strFaith = recruit.strFaith.Replace("mn", "37");
-                    recruit.strHPMid = recruit.strHPMid.Replace("n", "0");
-                    recruit.strHPHigh = recruit.strHPHigh.Replace("m", "8");
-                    recruit.strMPMid = recruit.strMPMid.Replace("n", "E");
-                    recruit.strMPHigh = recruit.strMPHigh.Replace("m", "1");
-                    recruit.strSpdMid = recruit.strSpdMid.Replace("n", "0");
-                    recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "2");
-                    recruit.strPAMid = recruit.strPAMid.Replace("n", "4");
-                    recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
-                    recruit.strMAMid = recruit.strMAMid.Replace("n", "4");
-                    recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+                    //recruit.strBrave = recruit.strBrave.Replace("mn", "50");
+                    //recruit.strFaith = recruit.strFaith.Replace("mn", "2D");
+                    //recruit.strHPMid = recruit.strHPMid.Replace("n", "A");
+                    //recruit.strHPHigh = recruit.strHPHigh.Replace("m", "8");
+                    //recruit.strMPMid = recruit.strMPMid.Replace("n", "2");
+                    //recruit.strMPHigh = recruit.strMPHigh.Replace("m", "3");
+                    //recruit.strSpdMid = recruit.strSpdMid.Replace("n", "8");
+                    //recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
+                    //recruit.strPAMid = recruit.strPAMid.Replace("n", "8");
+                    //recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
+                    //recruit.strMAMid = recruit.strMAMid.Replace("n", "2");
+                    //recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+
                     intCounter++;
-                    Append_stb(strLoc, recruit);
+                    Append_CheatFile(strLoc, recruit);
                 }
-                if (dctCBOPeeps[i].Contains("Jamie"))
+                tempName = "Huntress";
+                if (dctCBOPeeps[i].Contains(tempName))
                 {
                     string strLoc = string.Empty;
 
                     strLoc = SetHexPosition(i, strLoc);
+
+                    recruit = FillRecruitStats(tempName, "28", "50", "2", "6", "A", "5", "C", "1", "2", "1", "A", "1");
+                    recruit.strSex = recruit.strSex.Replace("m", "4");
+
+                    //recruit.strBrave = recruit.strBrave.Replace("mn", "28");
+                    //recruit.strFaith = recruit.strFaith.Replace("mn", "50");
+                    //recruit.strHPMid = recruit.strHPMid.Replace("n", "2");
+                    //recruit.strHPHigh = recruit.strHPHigh.Replace("m", "6");
+                    //recruit.strMPMid = recruit.strMPMid.Replace("n", "A");
+                    //recruit.strMPHigh = recruit.strMPHigh.Replace("m", "5");
+                    //recruit.strSpdMid = recruit.strSpdMid.Replace("n", "C");
+                    //recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
+                    //recruit.strPAMid = recruit.strPAMid.Replace("n", "2");
+                    //recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
+                    //recruit.strMAMid = recruit.strMAMid.Replace("n", "A");
+                    //recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+
+                    intCounter++;
+                    Append_CheatFile(strLoc, recruit);
+                }
+                tempName = "Ina";
+                if (dctCBOPeeps[i].Contains(tempName))
+                {
+                    string strLoc = string.Empty;
+
+                    strLoc = SetHexPosition(i, strLoc);
+
+                    recruit = FillRecruitStats(tempName, "2D", "4B", "C", "6", "4", "6", "8", "1", "2", "1", "A", "1");
+                    recruit.strSex = recruit.strSex.Replace("m", "4");
+
+                    //recruit.strBrave = recruit.strBrave.Replace("mn", "2D");
+                    //recruit.strFaith = recruit.strFaith.Replace("mn", "4B");
+                    //recruit.strHPMid = recruit.strHPMid.Replace("n", "C");
+                    //recruit.strHPHigh = recruit.strHPHigh.Replace("m", "6");
+                    //recruit.strMPMid = recruit.strMPMid.Replace("n", "4");
+                    //recruit.strMPHigh = recruit.strMPHigh.Replace("m", "6");
+                    //recruit.strSpdMid = recruit.strSpdMid.Replace("n", "8");
+                    //recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
+                    //recruit.strPAMid = recruit.strPAMid.Replace("n", "2");
+                    //recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
+                    //recruit.strMAMid = recruit.strMAMid.Replace("n", "A");
+                    //recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+
+                    intCounter++;
+                    Append_CheatFile(strLoc, recruit);
+                }
+                tempName = "Kouri";
+                if (dctCBOPeeps[i].Contains(tempName))
+                {
+                    string strLoc = string.Empty;
+
+                    strLoc = SetHexPosition(i, strLoc);
+
+                    recruit = FillRecruitStats(tempName, "46", "28", "8", "A", "A", "0", "C", "1", "8", "1", "2", "1");
+                    recruit.strSex = recruit.strSex.Replace("m", "8");
+
+                    ////strSex = strSex.Replace("m", "8");
+                    //recruit.strBrave = recruit.strBrave.Replace("mn", "46");
+                    //recruit.strFaith = recruit.strFaith.Replace("mn", "28");
+                    //recruit.strHPMid = recruit.strHPMid.Replace("n", "8");
+                    //recruit.strHPHigh = recruit.strHPHigh.Replace("m", "A");
+                    //recruit.strMPMid = recruit.strMPMid.Replace("n", "A");
+                    //recruit.strMPHigh = recruit.strMPHigh.Replace("m", "0");
+                    //recruit.strSpdMid = recruit.strSpdMid.Replace("n", "C");
+                    //recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
+                    //recruit.strPAMid = recruit.strPAMid.Replace("n", "8");
+                    //recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
+                    //recruit.strMAMid = recruit.strMAMid.Replace("n", "2");
+                    //recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+
+                    intCounter++;
+                    Append_CheatFile(strLoc, recruit);
+                }
+                tempName = "Shane";
+                if (dctCBOPeeps[i].Contains(tempName))
+                {
+                    string strLoc = string.Empty;
+
+                    strLoc = SetHexPosition(i, strLoc);
+
+                    recruit = FillRecruitStats(tempName, "41", "32", "A", "8", "C", "3", "C", "1", "4", "1", "4", "1");
+                    recruit.strSex = recruit.strSex.Replace("m", "8");
+
+                    ////strSex = strSex.Replace("m", "8");
+                    //recruit.strBrave = recruit.strBrave.Replace("mn", "41");
+                    //recruit.strFaith = recruit.strFaith.Replace("mn", "32");
+                    //recruit.strHPMid = recruit.strHPMid.Replace("n", "A");
+                    //recruit.strHPHigh = recruit.strHPHigh.Replace("m", "8");
+                    //recruit.strMPMid = recruit.strMPMid.Replace("n", "C");
+                    //recruit.strMPHigh = recruit.strMPHigh.Replace("m", "3");
+                    //recruit.strSpdMid = recruit.strSpdMid.Replace("n", "C");
+                    //recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
+                    //recruit.strPAMid = recruit.strPAMid.Replace("n", "4");
+                    //recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
+                    //recruit.strMAMid = recruit.strMAMid.Replace("n", "4");
+                    //recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+
+                    intCounter++;
+                    Append_CheatFile(strLoc, recruit);
+                }
+                tempName = "Drew";
+                if (dctCBOPeeps[i].Contains(tempName))
+                {
+                    string strLoc = string.Empty;
+
+                    strLoc = SetHexPosition(i, strLoc);
+
+                    recruit = FillRecruitStats(tempName, "2D", "4B", "8", "5", "C", "8", "8", "1", "0", "1", "C", "1");
+                    recruit.strSex = recruit.strSex.Replace("m", "8");
 
                     //strSex = strSex.Replace("m", "8");
-                    recruit.strBrave = recruit.strBrave.Replace("mn", "32");
-                    recruit.strFaith = recruit.strFaith.Replace("mn", "46");
-                    recruit.strHPMid = recruit.strHPMid.Replace("n", "0");
-                    recruit.strHPHigh = recruit.strHPHigh.Replace("m", "8");
-                    recruit.strMPMid = recruit.strMPMid.Replace("n", "6");
-                    recruit.strMPHigh = recruit.strMPHigh.Replace("m", "4");
-                    recruit.strSpdMid = recruit.strSpdMid.Replace("n", "C");
-                    recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
-                    recruit.strPAMid = recruit.strPAMid.Replace("n", "4");
-                    recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
-                    recruit.strMAMid = recruit.strMAMid.Replace("n", "4");
-                    recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+                    //recruit.strBrave = recruit.strBrave.Replace("mn", "2D");
+                    //recruit.strFaith = recruit.strFaith.Replace("mn", "4B");
+                    //recruit.strHPMid = recruit.strHPMid.Replace("n", "8");
+                    //recruit.strHPHigh = recruit.strHPHigh.Replace("m", "5");
+                    //recruit.strMPMid = recruit.strMPMid.Replace("n", "C");
+                    //recruit.strMPHigh = recruit.strMPHigh.Replace("m", "8");
+                    //recruit.strSpdMid = recruit.strSpdMid.Replace("n", "8");
+                    //recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
+                    //recruit.strPAMid = recruit.strPAMid.Replace("n", "0");
+                    //recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
+                    //recruit.strMAMid = recruit.strMAMid.Replace("n", "C");
+                    //recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+
                     intCounter++;
-                    Append_stb(strLoc, recruit);
+                    Append_CheatFile(strLoc, recruit);
                 }
-                if (dctCBOPeeps[i].Contains("Hendo"))
+                tempName = "Chuck";
+                if (dctCBOPeeps[i].Contains(tempName))
                 {
                     string strLoc = string.Empty;
 
                     strLoc = SetHexPosition(i, strLoc);
 
-                    //strSex = strSex.Replace("m", "8");
-                    recruit.strBrave = recruit.strBrave.Replace("mn", "37");
-                    recruit.strFaith = recruit.strFaith.Replace("mn", "3C");
-                    recruit.strHPMid = recruit.strHPMid.Replace("n", "A");
-                    recruit.strHPHigh = recruit.strHPHigh.Replace("m", "8");
-                    recruit.strMPMid = recruit.strMPMid.Replace("n", "6");
-                    recruit.strMPHigh = recruit.strMPHigh.Replace("m", "4");
-                    recruit.strSpdMid = recruit.strSpdMid.Replace("n", "8");
-                    recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
-                    recruit.strPAMid = recruit.strPAMid.Replace("n", "6");
-                    recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
-                    recruit.strMAMid = recruit.strMAMid.Replace("n", "4");
-                    recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+                    recruit = FillRecruitStats(tempName, "50", "3C", "2", "6", "A", "5", "E", "1", "2", "1", "7", "1");
+                    recruit.strSex = recruit.strSex.Replace("m", "8");
+
+                    //recruit.strBrave = recruit.strBrave.Replace("mn", "50");
+                    //recruit.strFaith = recruit.strFaith.Replace("mn", "3C");
+                    //recruit.strHPMid = recruit.strHPMid.Replace("n", "2");
+                    //recruit.strHPHigh = recruit.strHPHigh.Replace("m", "6");
+                    //recruit.strMPMid = recruit.strMPMid.Replace("n", "A");
+                    //recruit.strMPHigh = recruit.strMPHigh.Replace("m", "5");
+                    //recruit.strSpdMid = recruit.strSpdMid.Replace("n", "E");
+                    //recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
+                    //recruit.strPAMid = recruit.strPAMid.Replace("n", "2");
+                    //recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
+                    //recruit.strMAMid = recruit.strMAMid.Replace("n", "7");
+                    //recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+
                     intCounter++;
-                    Append_stb(strLoc, recruit);
+                    Append_CheatFile(strLoc, recruit);
                 }
-                if (dctCBOPeeps[i].Contains("Justin"))
+                tempName = "Hippy";
+                if (dctCBOPeeps[i].Contains(tempName))
                 {
                     string strLoc = string.Empty;
-
                     strLoc = SetHexPosition(i, strLoc);
 
-                    //strSex = strSex.Replace("m", "8");
-                    recruit.strBrave = recruit.strBrave.Replace("mn", "46");
-                    recruit.strFaith = recruit.strFaith.Replace("mn", "28");
-                    recruit.strHPMid = recruit.strHPMid.Replace("n", "2");
-                    recruit.strHPHigh = recruit.strHPHigh.Replace("m", "B");
-                    recruit.strMPMid = recruit.strMPMid.Replace("n", "A");
-                    recruit.strMPHigh = recruit.strMPHigh.Replace("m", "0");
-                    recruit.strSpdMid = recruit.strSpdMid.Replace("n", "4");
-                    recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
-                    recruit.strPAMid = recruit.strPAMid.Replace("n", "C");
-                    recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
-                    recruit.strMAMid = recruit.strMAMid.Replace("n", "0");
-                    recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+                    recruit = FillRecruitStats(tempName, "3C", "41", "0", "8", "C", "3", "C", "1", "4", "1", "4", "1");
+                    recruit.strSex = recruit.strSex.Replace("m", "8");
+
+                    //recruit.strBrave = recruit.strBrave.Replace("mn", "3C");
+                    //recruit.strFaith = recruit.strFaith.Replace("mn", "41");
+                    //recruit.strHPMid = recruit.strHPMid.Replace("n", "0");
+                    //recruit.strHPHigh = recruit.strHPHigh.Replace("m", "8");
+                    //recruit.strMPMid = recruit.strMPMid.Replace("n", "C");
+                    //recruit.strMPHigh = recruit.strMPHigh.Replace("m", "3");
+                    //recruit.strSpdMid = recruit.strSpdMid.Replace("n", "C");
+                    //recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
+                    //recruit.strPAMid = recruit.strPAMid.Replace("n", "4");
+                    //recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
+                    //recruit.strMAMid = recruit.strMAMid.Replace("n", "4");
+                    //recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+
                     intCounter++;
-                    Append_stb(strLoc, recruit);
+                    Append_CheatFile(strLoc, recruit);
                 }
-                if (dctCBOPeeps[i].Contains("Sobjack"))
+                tempName = "Eric";
+                if (dctCBOPeeps[i].Contains(tempName))
                 {
                     string strLoc = string.Empty;
-
                     strLoc = SetHexPosition(i, strLoc);
 
-                    //strSex = strSex.Replace("m", "8");
-                    recruit.strBrave = recruit.strBrave.Replace("mn", "50");
-                    recruit.strFaith = recruit.strFaith.Replace("mn", "2D");
-                    recruit.strHPMid = recruit.strHPMid.Replace("n", "A");
-                    recruit.strHPHigh = recruit.strHPHigh.Replace("m", "8");
-                    recruit.strMPMid = recruit.strMPMid.Replace("n", "2");
-                    recruit.strMPHigh = recruit.strMPHigh.Replace("m", "3");
-                    recruit.strSpdMid = recruit.strSpdMid.Replace("n", "8");
-                    recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
-                    recruit.strPAMid = recruit.strPAMid.Replace("n", "8");
-                    recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
-                    recruit.strMAMid = recruit.strMAMid.Replace("n", "2");
-                    recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+                    recruit.strSex = recruit.strSex.Replace("m", "8");
+
+                    //recruit.strBrave = recruit.strBrave.Replace("mn", "46");
+                    //recruit.strFaith = recruit.strFaith.Replace("mn", "28");
+                    //recruit.strHPMid = recruit.strHPMid.Replace("n", "0");
+                    //recruit.strHPHigh = recruit.strHPHigh.Replace("m", "8");
+                    //recruit.strMPMid = recruit.strMPMid.Replace("n", "C");
+                    //recruit.strMPHigh = recruit.strMPHigh.Replace("m", "3");
+                    //recruit.strSpdMid = recruit.strSpdMid.Replace("n", "0");
+                    //recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "2");
+                    //recruit.strPAMid = recruit.strPAMid.Replace("n", "4");
+                    //recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
+                    //recruit.strMAMid = recruit.strMAMid.Replace("n", "4");
+                    //recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+
                     intCounter++;
-                    Append_stb(strLoc, recruit);
+                    Append_CheatFile(strLoc, recruit);
                 }
-                if (dctCBOPeeps[i].Contains("Huntress"))
+                tempName = "Ambrozy";
+                if (dctCBOPeeps[i].Contains(tempName))
                 {
                     string strLoc = string.Empty;
-
                     strLoc = SetHexPosition(i, strLoc);
 
-                    //strSex = strSex.Replace("m", "4");
-                    recruit.strBrave = recruit.strBrave.Replace("mn", "28");
-                    recruit.strFaith = recruit.strFaith.Replace("mn", "50");
-                    recruit.strHPMid = recruit.strHPMid.Replace("n", "2");
-                    recruit.strHPHigh = recruit.strHPHigh.Replace("m", "6");
-                    recruit.strMPMid = recruit.strMPMid.Replace("n", "A");
-                    recruit.strMPHigh = recruit.strMPHigh.Replace("m", "5");
-                    recruit.strSpdMid = recruit.strSpdMid.Replace("n", "C");
-                    recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
-                    recruit.strPAMid = recruit.strPAMid.Replace("n", "2");
-                    recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
-                    recruit.strMAMid = recruit.strMAMid.Replace("n", "A");
-                    recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+                    recruit = FillRecruitStats(tempName, "55", "23", "0", "8", "8", "2", "0", "2", "6", "1", "2", "1");
+                    recruit.strSex = recruit.strSex.Replace("m", "8");
+
+                    //recruit.strBrave = recruit.strBrave.Replace("mn", "55");
+                    //recruit.strFaith = recruit.strFaith.Replace("mn", "23");
+                    //recruit.strHPMid = recruit.strHPMid.Replace("n", "0");
+                    //recruit.strHPHigh = recruit.strHPHigh.Replace("m", "8");
+                    //recruit.strMPMid = recruit.strMPMid.Replace("n", "8");
+                    //recruit.strMPHigh = recruit.strMPHigh.Replace("m", "2");
+                    //recruit.strSpdMid = recruit.strSpdMid.Replace("n", "0");
+                    //recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "2");
+                    //recruit.strPAMid = recruit.strPAMid.Replace("n", "6");
+                    //recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
+                    //recruit.strMAMid = recruit.strMAMid.Replace("n", "2");
+                    //recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+
                     intCounter++;
-                    Append_stb(strLoc, recruit);
+                    Append_CheatFile(strLoc, recruit);
                 }
-                if (dctCBOPeeps[i].Contains("Ina"))
+                tempName = "Marz";
+                if (dctCBOPeeps[i].Contains(tempName))
                 {
                     string strLoc = string.Empty;
-
                     strLoc = SetHexPosition(i, strLoc);
 
-                    //strSex = strSex.Replace("m", "4");
-                    recruit.strBrave = recruit.strBrave.Replace("mn", "2D");
-                    recruit.strFaith = recruit.strFaith.Replace("mn", "4B");
-                    recruit.strHPMid = recruit.strHPMid.Replace("n", "C");
-                    recruit.strHPHigh = recruit.strHPHigh.Replace("m", "6");
-                    recruit.strMPMid = recruit.strMPMid.Replace("n", "4");
-                    recruit.strMPHigh = recruit.strMPHigh.Replace("m", "6");
-                    recruit.strSpdMid = recruit.strSpdMid.Replace("n", "8");
-                    recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
-                    recruit.strPAMid = recruit.strPAMid.Replace("n", "2");
-                    recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
-                    recruit.strMAMid = recruit.strMAMid.Replace("n", "A");
-                    recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+                    //recruit.strSex = recruit.strSex.Replace("m", "8");
+                    //recruit.strBrave = recruit.strBrave.Replace("mn", "50");
+                    //recruit.strFaith = recruit.strFaith.Replace("mn", "2D");
+                    //recruit.strHPMid = recruit.strHPMid.Replace("n", "2");
+                    //recruit.strHPHigh = recruit.strHPHigh.Replace("m", "B");
+                    //recruit.strMPMid = recruit.strMPMid.Replace("n", "A");
+                    //recruit.strMPHigh = recruit.strMPHigh.Replace("m", "0");
+                    //recruit.strSpdMid = recruit.strSpdMid.Replace("n", "0");
+                    //recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
+                    //recruit.strPAMid = recruit.strPAMid.Replace("n", "A");
+                    //recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
+                    //recruit.strMAMid = recruit.strMAMid.Replace("n", "2");
+                    //recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+
                     intCounter++;
-                    Append_stb(strLoc, recruit);
+                    Append_CheatFile(strLoc, recruit);
                 }
-                if (dctCBOPeeps[i].Contains("Kouri"))
+                tempName = "Irwin";
+                if (dctCBOPeeps[i].Contains(tempName))
                 {
                     string strLoc = string.Empty;
-
                     strLoc = SetHexPosition(i, strLoc);
 
-                    //strSex = strSex.Replace("m", "8");
-                    recruit.strBrave = recruit.strBrave.Replace("mn", "46");
-                    recruit.strFaith = recruit.strFaith.Replace("mn", "28");
-                    recruit.strHPMid = recruit.strHPMid.Replace("n", "8");
-                    recruit.strHPHigh = recruit.strHPHigh.Replace("m", "A");
-                    recruit.strMPMid = recruit.strMPMid.Replace("n", "A");
-                    recruit.strMPHigh = recruit.strMPHigh.Replace("m", "0");
-                    recruit.strSpdMid = recruit.strSpdMid.Replace("n", "C");
-                    recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
-                    recruit.strPAMid = recruit.strPAMid.Replace("n", "6");
-                    recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
-                    recruit.strMAMid = recruit.strMAMid.Replace("n", "2");
-                    recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+                    recruit = FillRecruitStats(tempName, "46", "3C", "4", "9", "4", "1", "0", "2", "6", "1", "E", "0");
+                    recruit.strSex = recruit.strSex.Replace("m", "8");
+
+                    //recruit.strBrave = recruit.strBrave.Replace("mn", "46");
+                    //recruit.strFaith = recruit.strFaith.Replace("mn", "3C");
+                    //recruit.strHPMid = recruit.strHPMid.Replace("n", "4");
+                    //recruit.strHPHigh = recruit.strHPHigh.Replace("m", "9");
+                    //recruit.strMPMid = recruit.strMPMid.Replace("n", "4");
+                    //recruit.strMPHigh = recruit.strMPHigh.Replace("m", "1");
+                    //recruit.strSpdMid = recruit.strSpdMid.Replace("n", "0");
+                    //recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "2");
+                    //recruit.strPAMid = recruit.strPAMid.Replace("n", "6");
+                    //recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
+                    //recruit.strMAMid = recruit.strMAMid.Replace("n", "E");
+                    //recruit.strMAHigh = recruit.strMAHigh.Replace("m", "0");
+
                     intCounter++;
-                    Append_stb(strLoc, recruit);
-                }
-                if (dctCBOPeeps[i].Contains("Shane"))
-                {
-                    string strLoc = string.Empty;
-
-                    strLoc = SetHexPosition(i, strLoc);
-
-                    //strSex = strSex.Replace("m", "8");
-                    recruit.strBrave = recruit.strBrave.Replace("mn", "41");
-                    recruit.strFaith = recruit.strFaith.Replace("mn", "32");
-                    recruit.strHPMid = recruit.strHPMid.Replace("n", "A");
-                    recruit.strHPHigh = recruit.strHPHigh.Replace("m", "8");
-                    recruit.strMPMid = recruit.strMPMid.Replace("n", "C");
-                    recruit.strMPHigh = recruit.strMPHigh.Replace("m", "3");
-                    recruit.strSpdMid = recruit.strSpdMid.Replace("n", "C");
-                    recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
-                    recruit.strPAMid = recruit.strPAMid.Replace("n", "4");
-                    recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
-                    recruit.strMAMid = recruit.strMAMid.Replace("n", "4");
-                    recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
-                    intCounter++;
-                    Append_stb(strLoc, recruit);
-                }
-                if (dctCBOPeeps[i].Contains("Drew"))
-                {
-                    string strLoc = string.Empty;
-
-                    //strSex = strSex.Replace("m", "8");
-                    strLoc = SetHexPosition(i, strLoc);
-
-                    recruit.strBrave = recruit.strBrave.Replace("mn", "2D");
-                    recruit.strFaith = recruit.strFaith.Replace("mn", "4B");
-                    recruit.strHPMid = recruit.strHPMid.Replace("n", "8");
-                    recruit.strHPHigh = recruit.strHPHigh.Replace("m", "5");
-                    recruit.strMPMid = recruit.strMPMid.Replace("n", "C");
-                    recruit.strMPHigh = recruit.strMPHigh.Replace("m", "8");
-                    recruit.strSpdMid = recruit.strSpdMid.Replace("n", "8");
-                    recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
-                    recruit.strPAMid = recruit.strPAMid.Replace("n", "0");
-                    recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
-                    recruit.strMAMid = recruit.strMAMid.Replace("n", "C");
-                    recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
-                    intCounter++;
-                    Append_stb(strLoc, recruit);
-                }
-                if (dctCBOPeeps[i].Contains("Chzuck"))
-                {
-                    string strLoc = string.Empty;
-
-                    strLoc = SetHexPosition(i, strLoc);
-
-                    //strSex = strSex.Replace("m", "8");
-                    recruit.strBrave = recruit.strBrave.Replace("mn", "50");
-                    recruit.strFaith = recruit.strFaith.Replace("mn", "3C");
-                    recruit.strHPMid = recruit.strHPMid.Replace("n", "2");
-                    recruit.strHPHigh = recruit.strHPHigh.Replace("m", "6");
-                    recruit.strMPMid = recruit.strMPMid.Replace("n", "A");
-                    recruit.strMPHigh = recruit.strMPHigh.Replace("m", "5");
-                    recruit.strSpdMid = recruit.strSpdMid.Replace("n", "C");
-                    recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
-                    recruit.strPAMid = recruit.strPAMid.Replace("n", "2");
-                    recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
-                    recruit.strMAMid = recruit.strMAMid.Replace("n", "6");
-                    recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
-                    intCounter++;
-                    Append_stb(strLoc, recruit);
-                }
-                if (dctCBOPeeps[i].Contains("Brian"))
-                {
-                    string strLoc = string.Empty;
-
-                    strLoc = SetHexPosition(i, strLoc);
-
-                    //strSex = strSex.Replace("m", "8");
-                    recruit.strBrave = recruit.strBrave.Replace("mn", "3C");
-                    recruit.strFaith = recruit.strFaith.Replace("mn", "41");
-                    recruit.strHPMid = recruit.strHPMid.Replace("n", "0");
-                    recruit.strHPHigh = recruit.strHPHigh.Replace("m", "8");
-                    recruit.strMPMid = recruit.strMPMid.Replace("n", "C");
-                    recruit.strMPHigh = recruit.strMPHigh.Replace("m", "3");
-                    recruit.strSpdMid = recruit.strSpdMid.Replace("n", "C");
-                    recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
-                    recruit.strPAMid = recruit.strPAMid.Replace("n", "4");
-                    recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
-                    recruit.strMAMid = recruit.strMAMid.Replace("n", "4");
-                    recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
-                    intCounter++;
-                    Append_stb(strLoc, recruit);
-                }
-                if (dctCBOPeeps[i].Contains("Eric"))
-                {
-                    string strLoc = string.Empty;
-
-                    strLoc = SetHexPosition(i, strLoc);
-
-                    //strSex = strSex.Replace("m", "8");
-                    recruit.strBrave = recruit.strBrave.Replace("mn", "46");
-                    recruit.strFaith = recruit.strFaith.Replace("mn", "28");
-                    recruit.strHPMid = recruit.strHPMid.Replace("n", "0");
-                    recruit.strHPHigh = recruit.strHPHigh.Replace("m", "8");
-                    recruit.strMPMid = recruit.strMPMid.Replace("n", "C");
-                    recruit.strMPHigh = recruit.strMPHigh.Replace("m", "3");
-                    recruit.strSpdMid = recruit.strSpdMid.Replace("n", "0");
-                    recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "2");
-                    recruit.strPAMid = recruit.strPAMid.Replace("n", "4");
-                    recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
-                    recruit.strMAMid = recruit.strMAMid.Replace("n", "4");
-                    recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
-                    intCounter++;
-                    Append_stb(strLoc, recruit);
-                }
-                if (dctCBOPeeps[i].Contains("Ambrozy"))
-                {
-                    string strLoc = string.Empty;
-
-                    strLoc = SetHexPosition(i, strLoc);
-
-                    //strSex = strSex.Replace("m", "8");
-                    recruit.strBrave = recruit.strBrave.Replace("mn", "55");
-                    recruit.strFaith = recruit.strFaith.Replace("mn", "23");
-                    recruit.strHPMid = recruit.strHPMid.Replace("n", "0");
-                    recruit.strHPHigh = recruit.strHPHigh.Replace("m", "8");
-                    recruit.strMPMid = recruit.strMPMid.Replace("n", "8");
-                    recruit.strMPHigh = recruit.strMPHigh.Replace("m", "2");
-                    recruit.strSpdMid = recruit.strSpdMid.Replace("n", "0");
-                    recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "2");
-                    recruit.strPAMid = recruit.strPAMid.Replace("n", "6");
-                    recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
-                    recruit.strMAMid = recruit.strMAMid.Replace("n", "2");
-                    recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
-                    intCounter++;
-                    Append_stb(strLoc, recruit);
-                }
-                if (dctCBOPeeps[i].Contains("Marz"))
-                {
-                    string strLoc = string.Empty;
-
-                    strLoc = SetHexPosition(i, strLoc);
-
-                    //strSex = strSex.Replace("m", "8");
-                    recruit.strBrave = recruit.strBrave.Replace("mn", "50");
-                    recruit.strFaith = recruit.strFaith.Replace("mn", "2D");
-                    recruit.strHPMid = recruit.strHPMid.Replace("n", "2");
-                    recruit.strHPHigh = recruit.strHPHigh.Replace("m", "B");
-                    recruit.strMPMid = recruit.strMPMid.Replace("n", "A");
-                    recruit.strMPHigh = recruit.strMPHigh.Replace("m", "0");
-                    recruit.strSpdMid = recruit.strSpdMid.Replace("n", "0");
-                    recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
-                    recruit.strPAMid = recruit.strPAMid.Replace("n", "A");
-                    recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
-                    recruit.strMAMid = recruit.strMAMid.Replace("n", "2");
-                    recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
-                    intCounter++;
-                    Append_stb(strLoc, recruit);
-                }
-                if (dctCBOPeeps[i].Contains("Irwin"))
-                {
-                    string strLoc = string.Empty;
-
-                    strLoc = SetHexPosition(i, strLoc);
-
-                    //strSex = strSex.Replace("m", "8");
-                    recruit.strBrave = recruit.strBrave.Replace("mn", "46");
-                    recruit.strFaith = recruit.strFaith.Replace("mn", "3C");
-                    recruit.strHPMid = recruit.strHPMid.Replace("n", "4");
-                    recruit.strHPHigh = recruit.strHPHigh.Replace("m", "9");
-                    recruit.strMPMid = recruit.strMPMid.Replace("n", "4");
-                    recruit.strMPHigh = recruit.strMPHigh.Replace("m", "1");
-                    recruit.strSpdMid = recruit.strSpdMid.Replace("n", "0");
-                    recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "2");
-                    recruit.strPAMid = recruit.strPAMid.Replace("n", "6");
-                    recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
-                    recruit.strMAMid = recruit.strMAMid.Replace("n", "E");
-                    recruit.strMAHigh = recruit.strMAHigh.Replace("m", "0");
-                    intCounter++;
-                    Append_stb(strLoc, recruit);
+                    Append_CheatFile(strLoc, recruit);
                 }
                 if (dctCBOPeeps[i].Contains("Billy"))
                 {
@@ -653,21 +718,22 @@ namespace FFTCharacterGenerator
 
                     strLoc = SetHexPosition(i, strLoc);
 
-                    //strSex = strSex.Replace("m", "8");
-                    recruit.strBrave = recruit.strBrave.Replace("mn", "46");
-                    recruit.strFaith = recruit.strFaith.Replace("mn", "46");
-                    recruit.strHPMid = recruit.strHPMid.Replace("n", "A");
-                    recruit.strHPHigh = recruit.strHPHigh.Replace("m", "8");
-                    recruit.strMPMid = recruit.strMPMid.Replace("n", "C");
-                    recruit.strMPHigh = recruit.strMPHigh.Replace("m", "3");
-                    recruit.strSpdMid = recruit.strSpdMid.Replace("n", "8");
-                    recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
-                    recruit.strPAMid = recruit.strPAMid.Replace("n", "4");
-                    recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
-                    recruit.strMAMid = recruit.strMAMid.Replace("n", "2");
-                    recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+                    ////strSex = strSex.Replace("m", "8");
+                    //recruit.strBrave = recruit.strBrave.Replace("mn", "46");
+                    //recruit.strFaith = recruit.strFaith.Replace("mn", "46");
+                    //recruit.strHPMid = recruit.strHPMid.Replace("n", "A");
+                    //recruit.strHPHigh = recruit.strHPHigh.Replace("m", "8");
+                    //recruit.strMPMid = recruit.strMPMid.Replace("n", "C");
+                    //recruit.strMPHigh = recruit.strMPHigh.Replace("m", "3");
+                    //recruit.strSpdMid = recruit.strSpdMid.Replace("n", "8");
+                    //recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
+                    //recruit.strPAMid = recruit.strPAMid.Replace("n", "4");
+                    //recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
+                    //recruit.strMAMid = recruit.strMAMid.Replace("n", "2");
+                    //recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+
                     intCounter++;
-                    Append_stb(strLoc, recruit);
+                    Append_CheatFile(strLoc, recruit);
                 }
                 if (dctCBOPeeps[i].Contains("Bersche"))
                 {
@@ -675,43 +741,47 @@ namespace FFTCharacterGenerator
 
                     strLoc = SetHexPosition(i, strLoc);
 
-                    //strSex = strSex.Replace("m", "8");
-                    recruit.strBrave = recruit.strBrave.Replace("mn", "50");
-                    recruit.strFaith = recruit.strFaith.Replace("mn", "41");
-                    recruit.strHPMid = recruit.strHPMid.Replace("n", "4");
-                    recruit.strHPHigh = recruit.strHPHigh.Replace("m", "9");
-                    recruit.strMPMid = recruit.strMPMid.Replace("n", "8");
-                    recruit.strMPHigh = recruit.strMPHigh.Replace("m", "2");
-                    recruit.strSpdMid = recruit.strSpdMid.Replace("n", "8");
-                    recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
-                    recruit.strPAMid = recruit.strPAMid.Replace("n", "4");
-                    recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
-                    recruit.strMAMid = recruit.strMAMid.Replace("n", "0");
-                    recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+                    //recruit.strSex = recruit.strSex.Replace("m", "8");
+                    //recruit.strBrave = recruit.strBrave.Replace("mn", "50");
+                    //recruit.strFaith = recruit.strFaith.Replace("mn", "41");
+                    //recruit.strHPMid = recruit.strHPMid.Replace("n", "4");
+                    //recruit.strHPHigh = recruit.strHPHigh.Replace("m", "9");
+                    //recruit.strMPMid = recruit.strMPMid.Replace("n", "8");
+                    //recruit.strMPHigh = recruit.strMPHigh.Replace("m", "2");
+                    //recruit.strSpdMid = recruit.strSpdMid.Replace("n", "8");
+                    //recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
+                    //recruit.strPAMid = recruit.strPAMid.Replace("n", "4");
+                    //recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
+                    //recruit.strMAMid = recruit.strMAMid.Replace("n", "0");
+                    //recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+
                     intCounter++;
-                    Append_stb(strLoc, recruit);
+                    Append_CheatFile(strLoc, recruit);
                 }
-                if (dctCBOPeeps[i].Contains("Brandon"))
+                tempName = "Brandon";
+                if (dctCBOPeeps[i].Contains(tempName))
                 {
                     string strLoc = string.Empty;
-
                     strLoc = SetHexPosition(i, strLoc);
 
-                    //strSex = strSex.Replace("m", "8");
-                    recruit.strBrave = recruit.strBrave.Replace("mn", "41");
-                    recruit.strFaith = recruit.strFaith.Replace("mn", "3C");
-                    recruit.strHPMid = recruit.strHPMid.Replace("n", "A");
-                    recruit.strHPHigh = recruit.strHPHigh.Replace("m", "8");
-                    recruit.strMPMid = recruit.strMPMid.Replace("n", "E");
-                    recruit.strMPHigh = recruit.strMPHigh.Replace("m", "1");
-                    recruit.strSpdMid = recruit.strSpdMid.Replace("n", "C");
-                    recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
-                    recruit.strPAMid = recruit.strPAMid.Replace("n", "4");
-                    recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
-                    recruit.strMAMid = recruit.strMAMid.Replace("n", "4");
-                    recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+                    recruit = FillRecruitStats(tempName, "41", "3C", "A", "8", "E", "1", "C", "1", "4", "1", "4", "1");
+                    recruit.strSex = recruit.strSex.Replace("m", "8");
+
+                    //recruit.strBrave = recruit.strBrave.Replace("mn", "41");
+                    //recruit.strFaith = recruit.strFaith.Replace("mn", "3C");
+                    //recruit.strHPMid = recruit.strHPMid.Replace("n", "A");
+                    //recruit.strHPHigh = recruit.strHPHigh.Replace("m", "8");
+                    //recruit.strMPMid = recruit.strMPMid.Replace("n", "E");
+                    //recruit.strMPHigh = recruit.strMPHigh.Replace("m", "1");
+                    //recruit.strSpdMid = recruit.strSpdMid.Replace("n", "C");
+                    //recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
+                    //recruit.strPAMid = recruit.strPAMid.Replace("n", "4");
+                    //recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
+                    //recruit.strMAMid = recruit.strMAMid.Replace("n", "4");
+                    //recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+
                     intCounter++;
-                    Append_stb(strLoc, recruit);
+                    Append_CheatFile(strLoc, recruit);
                 }
                 if (dctCBOPeeps[i].Contains("Tom"))
                 {
@@ -719,198 +789,216 @@ namespace FFTCharacterGenerator
 
                     strLoc = SetHexPosition(i, strLoc);
 
-                    //strSex = strSex.Replace("m", "8");
-                    recruit.strBrave = recruit.strBrave.Replace("mn", "55");
-                    recruit.strFaith = recruit.strFaith.Replace("mn", "2D");
-                    recruit.strHPMid = recruit.strHPMid.Replace("n", "A");
-                    recruit.strHPHigh = recruit.strHPHigh.Replace("m", "8");
-                    recruit.strMPMid = recruit.strMPMid.Replace("n", "C");
-                    recruit.strMPHigh = recruit.strMPHigh.Replace("m", "3");
-                    recruit.strSpdMid = recruit.strSpdMid.Replace("n", "8");
-                    recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
-                    recruit.strPAMid = recruit.strPAMid.Replace("n", "4");
-                    recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
-                    recruit.strMAMid = recruit.strMAMid.Replace("n", "4");
-                    recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+                    //recruit.strBrave = recruit.strBrave.Replace("mn", "55");
+                    //recruit.strFaith = recruit.strFaith.Replace("mn", "2D");
+                    //recruit.strHPMid = recruit.strHPMid.Replace("n", "A");
+                    //recruit.strHPHigh = recruit.strHPHigh.Replace("m", "8");
+                    //recruit.strMPMid = recruit.strMPMid.Replace("n", "C");
+                    //recruit.strMPHigh = recruit.strMPHigh.Replace("m", "3");
+                    //recruit.strSpdMid = recruit.strSpdMid.Replace("n", "8");
+                    //recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
+                    //recruit.strPAMid = recruit.strPAMid.Replace("n", "4");
+                    //recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
+                    //recruit.strMAMid = recruit.strMAMid.Replace("n", "4");
+                    //recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+
                     intCounter++;
-                    Append_stb(strLoc, recruit);
+                    Append_CheatFile(strLoc, recruit);
                 }
-                if (dctCBOPeeps[i].Contains("Telka"))
+                tempName = "Inertia";
+                if (dctCBOPeeps[i].Contains(tempName))
                 {
                     string strLoc = string.Empty;
-
                     strLoc = SetHexPosition(i, strLoc);
 
-                    //strSex = strSex.Replace("m", "4");
-                    recruit.strBrave = recruit.strBrave.Replace("mn", "37");
-                    recruit.strFaith = recruit.strFaith.Replace("mn", "41");
-                    recruit.strHPMid = recruit.strHPMid.Replace("n", "8");
-                    recruit.strHPHigh = recruit.strHPHigh.Replace("m", "5");
-                    recruit.strMPMid = recruit.strMPMid.Replace("n", "E");
-                    recruit.strMPHigh = recruit.strMPHigh.Replace("m", "6");
-                    recruit.strSpdMid = recruit.strSpdMid.Replace("n", "C");
-                    recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
-                    recruit.strPAMid = recruit.strPAMid.Replace("n", "2");
-                    recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
-                    recruit.strMAMid = recruit.strMAMid.Replace("n", "A");
-                    recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+                    recruit = FillRecruitStats(tempName, "37", "41", "8", "5", "E", "6", "C", "1", "2", "1", "A", "1");
+                    recruit.strSex = recruit.strSex.Replace("m", "4");
+
+                    //recruit.strBrave = recruit.strBrave.Replace("mn", "37");
+                    //recruit.strFaith = recruit.strFaith.Replace("mn", "41");
+                    //recruit.strHPMid = recruit.strHPMid.Replace("n", "8");
+                    //recruit.strHPHigh = recruit.strHPHigh.Replace("m", "5");
+                    //recruit.strMPMid = recruit.strMPMid.Replace("n", "E");
+                    //recruit.strMPHigh = recruit.strMPHigh.Replace("m", "6");
+                    //recruit.strSpdMid = recruit.strSpdMid.Replace("n", "C");
+                    //recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
+                    //recruit.strPAMid = recruit.strPAMid.Replace("n", "2");
+                    //recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
+                    //recruit.strMAMid = recruit.strMAMid.Replace("n", "A");
+                    //recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+
                     intCounter++;
-                    Append_stb(strLoc, recruit);
+                    Append_CheatFile(strLoc, recruit);
                 }
-                if (dctCBOPeeps[i].Contains("Thieme"))
+                tempName = "Thieme";
+                if (dctCBOPeeps[i].Contains(tempName))
                 {
                     string strLoc = string.Empty;
-
                     strLoc = SetHexPosition(i, strLoc);
 
-                    //strSex = strSex.Replace("m", "8");
-                    recruit.strBrave = recruit.strBrave.Replace("mn", "37");
-                    recruit.strFaith = recruit.strFaith.Replace("mn", "41");
-                    recruit.strHPMid = recruit.strHPMid.Replace("n", "A");
-                    recruit.strHPHigh = recruit.strHPHigh.Replace("m", "8");
-                    recruit.strMPMid = recruit.strMPMid.Replace("n", "6");
-                    recruit.strMPHigh = recruit.strMPHigh.Replace("m", "4");
-                    recruit.strSpdMid = recruit.strSpdMid.Replace("n", "4");
-                    recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
-                    recruit.strPAMid = recruit.strPAMid.Replace("n", "4");
-                    recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
-                    recruit.strMAMid = recruit.strMAMid.Replace("n", "8");
-                    recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+                    recruit = FillRecruitStats(tempName, "37", "41", "A", "8", "6", "4", "4", "1", "4", "1", "8", "1");
+                    recruit.strSex = recruit.strSex.Replace("m", "8");
+                
+                    //recruit.strBrave = recruit.strBrave.Replace("mn", "37");
+                    //recruit.strFaith = recruit.strFaith.Replace("mn", "41");
+                    //recruit.strHPMid = recruit.strHPMid.Replace("n", "A");
+                    //recruit.strHPHigh = recruit.strHPHigh.Replace("m", "8");
+                    //recruit.strMPMid = recruit.strMPMid.Replace("n", "6");
+                    //recruit.strMPHigh = recruit.strMPHigh.Replace("m", "4");
+                    //recruit.strSpdMid = recruit.strSpdMid.Replace("n", "4");
+                    //recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
+                    //recruit.strPAMid = recruit.strPAMid.Replace("n", "4");
+                    //recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
+                    //recruit.strMAMid = recruit.strMAMid.Replace("n", "8");
+                    //recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+
                     intCounter++;
-                    Append_stb(strLoc, recruit);
+                    Append_CheatFile(strLoc, recruit);
                 }
-                if (dctCBOPeeps[i].Contains("Parks"))
+                tempName = "Constant";
+                if (dctCBOPeeps[i].Contains(tempName))
                 {
                     string strLoc = string.Empty;
-
                     strLoc = SetHexPosition(i, strLoc);
 
-                    //strSex = strSex.Replace("m", "8");
-                    recruit.strBrave = recruit.strBrave.Replace("mn", "4B");
-                    recruit.strFaith = recruit.strFaith.Replace("mn", "28");
-                    recruit.strHPMid = recruit.strHPMid.Replace("n", "4");
-                    recruit.strHPHigh = recruit.strHPHigh.Replace("m", "9");
-                    recruit.strMPMid = recruit.strMPMid.Replace("n", "C");
-                    recruit.strMPHigh = recruit.strMPHigh.Replace("m", "3");
-                    recruit.strSpdMid = recruit.strSpdMid.Replace("n", "4");
-                    recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
-                    recruit.strPAMid = recruit.strPAMid.Replace("n", "6");
-                    recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
-                    recruit.strMAMid = recruit.strMAMid.Replace("n", "6");
-                    recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+                    recruit = FillRecruitStats(tempName, "4B", "28", "4", "9", "C", "3", "4", "1", "6", "1", "6", "1");
+                    recruit.strSex = recruit.strSex.Replace("m", "8");
+
+                    ////strSex = strSex.Replace("m", "8");
+                    //recruit.strBrave = recruit.strBrave.Replace("mn", "4B");
+                    //recruit.strFaith = recruit.strFaith.Replace("mn", "28");
+                    //recruit.strHPMid = recruit.strHPMid.Replace("n", "4");
+                    //recruit.strHPHigh = recruit.strHPHigh.Replace("m", "9");
+                    //recruit.strMPMid = recruit.strMPMid.Replace("n", "C");
+                    //recruit.strMPHigh = recruit.strMPHigh.Replace("m", "3");
+                    //recruit.strSpdMid = recruit.strSpdMid.Replace("n", "4");
+                    //recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
+                    //recruit.strPAMid = recruit.strPAMid.Replace("n", "6");
+                    //recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
+                    //recruit.strMAMid = recruit.strMAMid.Replace("n", "6");
+                    //recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+
                     intCounter++;
-                    Append_stb(strLoc, recruit);
+                    Append_CheatFile(strLoc, recruit);
                 }
-                if (dctCBOPeeps[i].Contains("Satan"))
+                tempName = "Satan";
+                if (dctCBOPeeps[i].Contains(tempName))
                 {
                     string strLoc = string.Empty;
-
                     strLoc = SetHexPosition(i, strLoc);
 
-                    //strSex = strSex.Replace("m", "8");
-                    recruit.strBrave = recruit.strBrave.Replace("mn", "41");
-                    recruit.strFaith = recruit.strFaith.Replace("mn", "32");
-                    recruit.strHPMid = recruit.strHPMid.Replace("n", "A");
-                    recruit.strHPHigh = recruit.strHPHigh.Replace("m", "8");
-                    recruit.strMPMid = recruit.strMPMid.Replace("n", "C");
-                    recruit.strMPHigh = recruit.strMPHigh.Replace("m", "3");
-                    recruit.strSpdMid = recruit.strSpdMid.Replace("n", "C");
-                    recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
-                    recruit.strPAMid = recruit.strPAMid.Replace("n", "4");
-                    recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
-                    recruit.strMAMid = recruit.strMAMid.Replace("n", "4");
-                    recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+                    recruit = FillRecruitStats(tempName, "41", "32", "A", "8", "C", "3", "F", "1", "4", "1", "4", "1");
+                    recruit.strSex = recruit.strSex.Replace("m", "8");
+
+                    //recruit.strBrave = recruit.strBrave.Replace("mn", "3C");
+                    //recruit.strFaith = recruit.strFaith.Replace("mn", "41");
+                    //recruit.strHPMid = recruit.strHPMid.Replace("n", "A");
+                    //recruit.strHPHigh = recruit.strHPHigh.Replace("m", "8");
+                    //recruit.strMPMid = recruit.strMPMid.Replace("n", "6");
+                    //recruit.strMPHigh = recruit.strMPHigh.Replace("m", "4");
+                    //recruit.strSpdMid = recruit.strSpdMid.Replace("n", "8");
+                    //recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
+                    //recruit.strPAMid = recruit.strPAMid.Replace("n", "4");
+                    //recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
+                    //recruit.strMAMid = recruit.strMAMid.Replace("n", "4");
+                    //recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+
                     intCounter++;
-                    Append_stb(strLoc, recruit);
+                    Append_CheatFile(strLoc, recruit);
                 }
                 if (dctCBOPeeps[i].Contains("Jon"))
                 {
                     string strLoc = string.Empty;
-
                     strLoc = SetHexPosition(i, strLoc);
 
                     //strSex = strSex.Replace("m", "8");
-                    recruit.strBrave = recruit.strBrave.Replace("mn", "3C");
-                    recruit.strFaith = recruit.strFaith.Replace("mn", "41");
-                    recruit.strHPMid = recruit.strHPMid.Replace("n", "A");
-                    recruit.strHPHigh = recruit.strHPHigh.Replace("m", "8");
-                    recruit.strMPMid = recruit.strMPMid.Replace("n", "6");
-                    recruit.strMPHigh = recruit.strMPHigh.Replace("m", "4");
-                    recruit.strSpdMid = recruit.strSpdMid.Replace("n", "8");
-                    recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
-                    recruit.strPAMid = recruit.strPAMid.Replace("n", "4");
-                    recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
-                    recruit.strMAMid = recruit.strMAMid.Replace("n", "4");
-                    recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
-                    intCounter++;
-                    Append_stb(strLoc, recruit);
-                }
 
+                    //recruit.strBrave = recruit.strBrave.Replace("mn", "3C");
+                    //recruit.strFaith = recruit.strFaith.Replace("mn", "41");
+                    //recruit.strHPMid = recruit.strHPMid.Replace("n", "A");
+                    //recruit.strHPHigh = recruit.strHPHigh.Replace("m", "8");
+                    //recruit.strMPMid = recruit.strMPMid.Replace("n", "6");
+                    //recruit.strMPHigh = recruit.strMPHigh.Replace("m", "4");
+                    //recruit.strSpdMid = recruit.strSpdMid.Replace("n", "8");
+                    //recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
+                    //recruit.strPAMid = recruit.strPAMid.Replace("n", "4");
+                    //recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
+                    //recruit.strMAMid = recruit.strMAMid.Replace("n", "4");
+                    //recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+
+                    intCounter++;
+                    Append_CheatFile(strLoc, recruit);
+                }
                 if (dctCBOPeeps[i].Contains("JoeV"))
                 {
                     string strLoc = string.Empty;
 
                     strLoc = SetHexPosition(i, strLoc);
 
-                    //strSex = strSex.Replace("m", "8");
-                    recruit.strBrave = recruit.strBrave.Replace("mn", "46");
-                    recruit.strFaith = recruit.strFaith.Replace("mn", "28");
-                    recruit.strHPMid = recruit.strHPMid.Replace("n", "8");
-                    recruit.strHPHigh = recruit.strHPHigh.Replace("m", "A");
-                    recruit.strMPMid = recruit.strMPMid.Replace("n", "A");
-                    recruit.strMPHigh = recruit.strMPHigh.Replace("m", "0");
-                    recruit.strSpdMid = recruit.strSpdMid.Replace("n", "4");
-                    recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
-                    recruit.strPAMid = recruit.strPAMid.Replace("n", "C");
-                    recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
-                    recruit.strMAMid = recruit.strMAMid.Replace("n", "0");
-                    recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+                    //recruit.strBrave = recruit.strBrave.Replace("mn", "46");
+                    //recruit.strFaith = recruit.strFaith.Replace("mn", "28");
+                    //recruit.strHPMid = recruit.strHPMid.Replace("n", "8");
+                    //recruit.strHPHigh = recruit.strHPHigh.Replace("m", "A");
+                    //recruit.strMPMid = recruit.strMPMid.Replace("n", "A");
+                    //recruit.strMPHigh = recruit.strMPHigh.Replace("m", "0");
+                    //recruit.strSpdMid = recruit.strSpdMid.Replace("n", "4");
+                    //recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "1");
+                    //recruit.strPAMid = recruit.strPAMid.Replace("n", "C");
+                    //recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
+                    //recruit.strMAMid = recruit.strMAMid.Replace("n", "0");
+                    //recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+
                     intCounter++;
-                    Append_stb(strLoc, recruit);
+                    Append_CheatFile(strLoc, recruit);
                 }
-                if (dctCBOPeeps[i].Contains("Liam"))
+                tempName = "Liam";
+                if (dctCBOPeeps[i].Contains(tempName))
                 {
                     string strLoc = string.Empty;
-
                     strLoc = SetHexPosition(i, strLoc);
 
-                    //strSex = strSex.Replace("m", "8");
-                    recruit.strBrave = recruit.strBrave.Replace("mn", "55");
-                    recruit.strFaith = recruit.strFaith.Replace("mn", "32");
-                    recruit.strHPMid = recruit.strHPMid.Replace("n", "0");
-                    recruit.strHPHigh = recruit.strHPHigh.Replace("m", "8");
-                    recruit.strMPMid = recruit.strMPMid.Replace("n", "0");
-                    recruit.strMPHigh = recruit.strMPHigh.Replace("m", "4");
-                    recruit.strSpdMid = recruit.strSpdMid.Replace("n", "5");
-                    recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "2");
-                    recruit.strPAMid = recruit.strPAMid.Replace("n", "6");
-                    recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
-                    recruit.strMAMid = recruit.strMAMid.Replace("n", "0");
-                    recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+                    recruit = FillRecruitStats(tempName, "55", "32", "0", "8", "0", "4", "5", "2", "7", "1", "0", "1");
+                    recruit.strSex = recruit.strSex.Replace("m", "8");
+
+                    //recruit.strBrave = recruit.strBrave.Replace("mn", "55");
+                    //recruit.strFaith = recruit.strFaith.Replace("mn", "32");
+                    //recruit.strHPMid = recruit.strHPMid.Replace("n", "0");
+                    //recruit.strHPHigh = recruit.strHPHigh.Replace("m", "8");
+                    //recruit.strMPMid = recruit.strMPMid.Replace("n", "0");
+                    //recruit.strMPHigh = recruit.strMPHigh.Replace("m", "4");
+                    //recruit.strSpdMid = recruit.strSpdMid.Replace("n", "5");
+                    //recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "2");
+                    //recruit.strPAMid = recruit.strPAMid.Replace("n", "7");
+                    //recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
+                    //recruit.strMAMid = recruit.strMAMid.Replace("n", "0");
+                    //recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+
                     intCounter++;
-                    Append_stb(strLoc, recruit);
+                    Append_CheatFile(strLoc, recruit);
                 }
-                if (dctCBOPeeps[i].Contains("Fallout"))
+                tempName = "Fallout";
+                if (dctCBOPeeps[i].Contains(tempName))
                 {
                     string strLoc = string.Empty;
-
                     strLoc = SetHexPosition(i, strLoc);
 
-                    //strSex = strSex.Replace("m", "8");
-                    recruit.strBrave = recruit.strBrave.Replace("mn", "50");
-                    recruit.strFaith = recruit.strFaith.Replace("mn", "32");
-                    recruit.strHPMid = recruit.strHPMid.Replace("n", "0");
-                    recruit.strHPHigh = recruit.strHPHigh.Replace("m", "8");
-                    recruit.strMPMid = recruit.strMPMid.Replace("n", "0");
-                    recruit.strMPHigh = recruit.strMPHigh.Replace("m", "4");
-                    recruit.strSpdMid = recruit.strSpdMid.Replace("n", "A");
-                    recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "2");
-                    recruit.strPAMid = recruit.strPAMid.Replace("n", "4");
-                    recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
-                    recruit.strMAMid = recruit.strMAMid.Replace("n", "0");
-                    recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
+                    recruit = FillRecruitStats(tempName, "50", "32", "0", "8", "0", "4", "A", "2", "5", "1", "0", "1");
+                    recruit.strSex = recruit.strSex.Replace("m", "8");
+
+                    //recruit.strBrave = recruit.strBrave.Replace("mn", "50");
+                    //recruit.strFaith = recruit.strFaith.Replace("mn", "32");
+                    //recruit.strHPMid = recruit.strHPMid.Replace("n", "0");
+                    //recruit.strHPHigh = recruit.strHPHigh.Replace("m", "8");
+                    //recruit.strMPMid = recruit.strMPMid.Replace("n", "0");
+                    //recruit.strMPHigh = recruit.strMPHigh.Replace("m", "4");
+                    //recruit.strSpdMid = recruit.strSpdMid.Replace("n", "A");
+                    //recruit.strSpdHigh = recruit.strSpdHigh.Replace("m", "2");
+                    //recruit.strPAMid = recruit.strPAMid.Replace("n", "5");
+                    //recruit.strPAHigh = recruit.strPAHigh.Replace("m", "1");
+                    //recruit.strMAMid = recruit.strMAMid.Replace("n", "0");
+                    //recruit.strMAHigh = recruit.strMAHigh.Replace("m", "1");
                     intCounter++;
-                    Append_stb(strLoc, recruit);
+                    Append_CheatFile(strLoc, recruit);
                 }
             }
             return intCounter;
@@ -920,7 +1008,7 @@ namespace FFTCharacterGenerator
         {
             FFTCharacter currentCharacter = new FFTCharacter();
 
-            currentCharacter.strName = currentCharacter.strBrave.Replace("Nullo", name);
+            currentCharacter.strName = currentCharacter.strName.Replace("Nullo", name);
             currentCharacter.strBrave = currentCharacter.strBrave.Replace("mn", braveStat);
             currentCharacter.strFaith = currentCharacter.strFaith.Replace("mn", faithStat);
             currentCharacter.strHPMid = currentCharacter.strHPMid.Replace("n", HPMidBits);
@@ -1002,9 +1090,11 @@ namespace FFTCharacterGenerator
             return strLoc;
         }
 
-        private void Append_stb(string strLoc, FFTCharacter recruit)
+        private void Append_CheatFile(string strLoc, FFTCharacter recruit)
         {
-            stbCheatFile.Append(recruit.strSex + "\r\n");
+            //stbCheatFile.Append(recruit.strSex + "\r\n
+            stbCheatFile.Append(" \r\n");
+            stbCheatFile.Append("# " + recruit.strName + "\r\n");
             stbCheatFile.Append(recruit.strBrave + "\r\n");
             stbCheatFile.Append(recruit.strFaith + "\r\n");
             stbCheatFile.Append(recruit.strHPMid + "\r\n");
