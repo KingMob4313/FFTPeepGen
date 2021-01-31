@@ -2,20 +2,24 @@
 {
     public class FFTCharacter
     {
+        //Is it 300 or 800?
+        private static string codePrefix = "300";
+        
+        //https://www.almarsguides.com/retro/walkthroughs/PS1/Games/FinalFantasyTactics/Gameshark/
         public string strName = "Nullo";
-        public string strSex = "3005xx78 00m0";
-        public string strBrave = "3005xx8B 00mn";
-        public string strFaith = "3005xx8C 00mn";
-        public string strHPMid = "3005xx8E 00n0";
-        public string strHPHigh = "3005xx8F 000m";
-        public string strMPMid = "3005xx91 00n0";
-        public string strMPHigh = "3005xx92 000m";
-        public string strSpdMid = "3005xx94 00n0";
-        public string strSpdHigh = "3005xx95 000m";
-        public string strPAMid = "3005xx97 00n0";
-        public string strPAHigh = "3005xx98 000m";
-        public string strMAMid = "3005xx9A 00n0";
-        public string strMAHigh = "3005xx9B 000m";
+        public string strSex = codePrefix + "5qq78 00x0";
+        public string strBrave = codePrefix + "5qq8B 00xy";
+        public string strFaith = codePrefix + "5qq8C 00xy";
+        public string strHPLow = codePrefix + "5qq8E z000";
+        public string strHPHigh = codePrefix + "5qq8F 00xy";
+        public string strMPLow = codePrefix + "5qq91 z000";
+        public string strMPHigh = codePrefix + "5qq92 00xy";
+        public string strSpdLow = codePrefix + "5qq94 00yz";
+        public string strSpdHigh = codePrefix + "5qq95 000x";
+        public string strPALow = codePrefix + "5qq97 00yz";
+        public string strPAHigh = codePrefix + "5qq98 000x";
+        public string strMALow = codePrefix + "5qq9A 00yz";
+        public string strMAHigh = codePrefix + "5qq9B 000x";
 
         public virtual void SetCharacterStats<FFTCharacter>()
         {
@@ -24,19 +28,20 @@
         public void ResetStrings()
         {
             strName = "Nullo";
-            strSex = "3005xx78 00m0";
-            strBrave = "3005xx8B 00mn";
-            strFaith = "3005xx8C 00mn";
-            strHPMid = "3005xx8E 00n0";
-            strHPHigh = "3005xx8F 000m";
-            strMPMid = "3005xx91 00n0";
-            strMPHigh = "3005xx92 000m";
-            strSpdMid = "3005xx94 00n0";
-            strSpdHigh = "3005xx95 000m";
-            strPAMid = "3005xx97 00n0";
-            strPAHigh = "3005xx98 000m";
-            strMAMid = "3005xx9A 00n0";
-            strMAHigh = "3005xx9B 000m";
+            strSex = codePrefix + "5qq78 00x0";
+            strBrave = codePrefix + "5qq8B 00xy";
+            strFaith = codePrefix + "5qq8C 00xy";
+            strHPLow = codePrefix + "5qq8E z000";
+            strHPHigh = codePrefix + "5qq8F 00xy";
+            strMPLow = codePrefix + "5qq91 z000";
+            strMPHigh = codePrefix + "5qq92 00xy";
+            strSpdLow = codePrefix + "5qq94 00yz";
+            strSpdHigh = codePrefix + "5qq95 000x";
+            strPALow = codePrefix + "5qq97 00yz";
+            strPAHigh = codePrefix + "5qq98 000x";
+            strMALow = codePrefix + "5qq9A 00yz";
+            strMAHigh = codePrefix + "5qq9B 000x";
         }
     }
+
 }

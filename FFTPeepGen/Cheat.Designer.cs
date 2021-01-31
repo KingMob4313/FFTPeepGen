@@ -62,6 +62,11 @@
             this.label16 = new System.Windows.Forms.Label();
             this.btnGenerate = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rdoOnePerLvl = new System.Windows.Forms.RadioButton();
+            this.rdoFourPerLvl = new System.Windows.Forms.RadioButton();
+            this.rdoTwoPerLvl = new System.Windows.Forms.RadioButton();
+            this.rdoThreePerLvl = new System.Windows.Forms.RadioButton();
+            this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.btnBrowsePath = new System.Windows.Forms.Button();
             this.txtPath = new System.Windows.Forms.TextBox();
@@ -69,15 +74,10 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.chkJobPtsLock = new System.Windows.Forms.CheckBox();
-            this.chkMaxCash = new System.Windows.Forms.CheckBox();
-            this.chkMaxJobPts = new System.Windows.Forms.CheckBox();
-            this.rdoThreePerLvl = new System.Windows.Forms.RadioButton();
-            this.rdoTwoPerLvl = new System.Windows.Forms.RadioButton();
-            this.rdoOnePerLvl = new System.Windows.Forms.RadioButton();
-            this.label18 = new System.Windows.Forms.Label();
-            this.rdoFourPerLvl = new System.Windows.Forms.RadioButton();
             this.chkAutoLvl = new System.Windows.Forms.CheckBox();
+            this.chkMaxJobPts = new System.Windows.Forms.CheckBox();
+            this.chkMaxCash = new System.Windows.Forms.CheckBox();
+            this.chkJobPtsLock = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -421,6 +421,67 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "CheatGenerator";
             // 
+            // rdoOnePerLvl
+            // 
+            this.rdoOnePerLvl.AutoSize = true;
+            this.rdoOnePerLvl.Enabled = false;
+            this.rdoOnePerLvl.Location = new System.Drawing.Point(164, 262);
+            this.rdoOnePerLvl.Name = "rdoOnePerLvl";
+            this.rdoOnePerLvl.Size = new System.Drawing.Size(45, 17);
+            this.rdoOnePerLvl.TabIndex = 6;
+            this.rdoOnePerLvl.Text = "One";
+            this.rdoOnePerLvl.UseVisualStyleBackColor = true;
+            this.rdoOnePerLvl.Visible = false;
+            // 
+            // rdoFourPerLvl
+            // 
+            this.rdoFourPerLvl.AutoSize = true;
+            this.rdoFourPerLvl.Enabled = false;
+            this.rdoFourPerLvl.Location = new System.Drawing.Point(10, 262);
+            this.rdoFourPerLvl.Name = "rdoFourPerLvl";
+            this.rdoFourPerLvl.Size = new System.Drawing.Size(46, 17);
+            this.rdoFourPerLvl.TabIndex = 8;
+            this.rdoFourPerLvl.Text = "Four";
+            this.rdoFourPerLvl.UseVisualStyleBackColor = true;
+            this.rdoFourPerLvl.Visible = false;
+            // 
+            // rdoTwoPerLvl
+            // 
+            this.rdoTwoPerLvl.AutoSize = true;
+            this.rdoTwoPerLvl.Checked = true;
+            this.rdoTwoPerLvl.Enabled = false;
+            this.rdoTwoPerLvl.Location = new System.Drawing.Point(112, 262);
+            this.rdoTwoPerLvl.Name = "rdoTwoPerLvl";
+            this.rdoTwoPerLvl.Size = new System.Drawing.Size(46, 17);
+            this.rdoTwoPerLvl.TabIndex = 5;
+            this.rdoTwoPerLvl.TabStop = true;
+            this.rdoTwoPerLvl.Text = "Two";
+            this.rdoTwoPerLvl.UseVisualStyleBackColor = true;
+            this.rdoTwoPerLvl.Visible = false;
+            // 
+            // rdoThreePerLvl
+            // 
+            this.rdoThreePerLvl.AutoSize = true;
+            this.rdoThreePerLvl.Enabled = false;
+            this.rdoThreePerLvl.Location = new System.Drawing.Point(62, 262);
+            this.rdoThreePerLvl.Name = "rdoThreePerLvl";
+            this.rdoThreePerLvl.Size = new System.Drawing.Size(53, 17);
+            this.rdoThreePerLvl.TabIndex = 4;
+            this.rdoThreePerLvl.Text = "Three";
+            this.rdoThreePerLvl.UseVisualStyleBackColor = true;
+            this.rdoThreePerLvl.Visible = false;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Enabled = false;
+            this.label18.Location = new System.Drawing.Point(9, 247);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(174, 13);
+            this.label18.TabIndex = 7;
+            this.label18.Text = "Number of Actions Before Level Up";
+            this.label18.Visible = false;
+            // 
             // label17
             // 
             this.label17.AutoSize = true;
@@ -444,7 +505,6 @@
             // 
             this.txtPath.Location = new System.Drawing.Point(113, 6);
             this.txtPath.Name = "txtPath";
-            this.txtPath.ReadOnly = true;
             this.txtPath.Size = new System.Drawing.Size(399, 20);
             this.txtPath.TabIndex = 41;
             // 
@@ -461,7 +521,7 @@
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(104, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(112, 17);
             this.toolStripStatusLabel1.Text = "Waiting to Generate";
             // 
             // groupBox2
@@ -477,17 +537,30 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Other Cheats";
             // 
-            // chkJobPtsLock
+            // chkAutoLvl
             // 
-            this.chkJobPtsLock.AutoSize = true;
-            this.chkJobPtsLock.Checked = true;
-            this.chkJobPtsLock.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkJobPtsLock.Location = new System.Drawing.Point(12, 19);
-            this.chkJobPtsLock.Name = "chkJobPtsLock";
-            this.chkJobPtsLock.Size = new System.Drawing.Size(156, 17);
-            this.chkJobPtsLock.TabIndex = 1;
-            this.chkJobPtsLock.Text = "Job Points Never Decrease";
-            this.chkJobPtsLock.UseVisualStyleBackColor = true;
+            this.chkAutoLvl.AutoSize = true;
+            this.chkAutoLvl.Checked = true;
+            this.chkAutoLvl.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkAutoLvl.Location = new System.Drawing.Point(12, 42);
+            this.chkAutoLvl.Name = "chkAutoLvl";
+            this.chkAutoLvl.Size = new System.Drawing.Size(156, 17);
+            this.chkAutoLvl.TabIndex = 38;
+            this.chkAutoLvl.Text = "+1 Character Lvl Per Action";
+            this.chkAutoLvl.UseVisualStyleBackColor = true;
+            this.chkAutoLvl.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // chkMaxJobPts
+            // 
+            this.chkMaxJobPts.AutoSize = true;
+            this.chkMaxJobPts.Checked = true;
+            this.chkMaxJobPts.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkMaxJobPts.Location = new System.Drawing.Point(277, 42);
+            this.chkMaxJobPts.Name = "chkMaxJobPts";
+            this.chkMaxJobPts.Size = new System.Drawing.Size(174, 17);
+            this.chkMaxJobPts.TabIndex = 3;
+            this.chkMaxJobPts.Text = "Maximum Job Points Per Action";
+            this.chkMaxJobPts.UseVisualStyleBackColor = true;
             // 
             // chkMaxCash
             // 
@@ -502,91 +575,17 @@
             this.chkMaxCash.UseVisualStyleBackColor = true;
             this.chkMaxCash.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
-            // chkMaxJobPts
+            // chkJobPtsLock
             // 
-            this.chkMaxJobPts.AutoSize = true;
-            this.chkMaxJobPts.Checked = true;
-            this.chkMaxJobPts.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkMaxJobPts.Location = new System.Drawing.Point(277, 42);
-            this.chkMaxJobPts.Name = "chkMaxJobPts";
-            this.chkMaxJobPts.Size = new System.Drawing.Size(174, 17);
-            this.chkMaxJobPts.TabIndex = 3;
-            this.chkMaxJobPts.Text = "Maximum Job Points Per Action";
-            this.chkMaxJobPts.UseVisualStyleBackColor = true;
-            // 
-            // rdoThreePerLvl
-            // 
-            this.rdoThreePerLvl.AutoSize = true;
-            this.rdoThreePerLvl.Enabled = false;
-            this.rdoThreePerLvl.Location = new System.Drawing.Point(62, 262);
-            this.rdoThreePerLvl.Name = "rdoThreePerLvl";
-            this.rdoThreePerLvl.Size = new System.Drawing.Size(53, 17);
-            this.rdoThreePerLvl.TabIndex = 4;
-            this.rdoThreePerLvl.Text = "Three";
-            this.rdoThreePerLvl.UseVisualStyleBackColor = true;
-            this.rdoThreePerLvl.Visible = false;
-            // 
-            // rdoTwoPerLvl
-            // 
-            this.rdoTwoPerLvl.AutoSize = true;
-            this.rdoTwoPerLvl.Checked = true;
-            this.rdoTwoPerLvl.Enabled = false;
-            this.rdoTwoPerLvl.Location = new System.Drawing.Point(112, 262);
-            this.rdoTwoPerLvl.Name = "rdoTwoPerLvl";
-            this.rdoTwoPerLvl.Size = new System.Drawing.Size(46, 17);
-            this.rdoTwoPerLvl.TabIndex = 5;
-            this.rdoTwoPerLvl.TabStop = true;
-            this.rdoTwoPerLvl.Text = "Two";
-            this.rdoTwoPerLvl.UseVisualStyleBackColor = true;
-            this.rdoTwoPerLvl.Visible = false;
-            // 
-            // rdoOnePerLvl
-            // 
-            this.rdoOnePerLvl.AutoSize = true;
-            this.rdoOnePerLvl.Enabled = false;
-            this.rdoOnePerLvl.Location = new System.Drawing.Point(164, 262);
-            this.rdoOnePerLvl.Name = "rdoOnePerLvl";
-            this.rdoOnePerLvl.Size = new System.Drawing.Size(45, 17);
-            this.rdoOnePerLvl.TabIndex = 6;
-            this.rdoOnePerLvl.Text = "One";
-            this.rdoOnePerLvl.UseVisualStyleBackColor = true;
-            this.rdoOnePerLvl.Visible = false;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Enabled = false;
-            this.label18.Location = new System.Drawing.Point(9, 247);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(174, 13);
-            this.label18.TabIndex = 7;
-            this.label18.Text = "Number of Actions Before Level Up";
-            this.label18.Visible = false;
-            // 
-            // rdoFourPerLvl
-            // 
-            this.rdoFourPerLvl.AutoSize = true;
-            this.rdoFourPerLvl.Enabled = false;
-            this.rdoFourPerLvl.Location = new System.Drawing.Point(10, 262);
-            this.rdoFourPerLvl.Name = "rdoFourPerLvl";
-            this.rdoFourPerLvl.Size = new System.Drawing.Size(46, 17);
-            this.rdoFourPerLvl.TabIndex = 8;
-            this.rdoFourPerLvl.Text = "Four";
-            this.rdoFourPerLvl.UseVisualStyleBackColor = true;
-            this.rdoFourPerLvl.Visible = false;
-            // 
-            // chkAutoLvl
-            // 
-            this.chkAutoLvl.AutoSize = true;
-            this.chkAutoLvl.Checked = true;
-            this.chkAutoLvl.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkAutoLvl.Location = new System.Drawing.Point(12, 42);
-            this.chkAutoLvl.Name = "chkAutoLvl";
-            this.chkAutoLvl.Size = new System.Drawing.Size(156, 17);
-            this.chkAutoLvl.TabIndex = 38;
-            this.chkAutoLvl.Text = "+1 Character Lvl Per Action";
-            this.chkAutoLvl.UseVisualStyleBackColor = true;
-            this.chkAutoLvl.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.chkJobPtsLock.AutoSize = true;
+            this.chkJobPtsLock.Checked = true;
+            this.chkJobPtsLock.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkJobPtsLock.Location = new System.Drawing.Point(12, 19);
+            this.chkJobPtsLock.Name = "chkJobPtsLock";
+            this.chkJobPtsLock.Size = new System.Drawing.Size(156, 17);
+            this.chkJobPtsLock.TabIndex = 1;
+            this.chkJobPtsLock.Text = "Job Points Never Decrease";
+            this.chkJobPtsLock.UseVisualStyleBackColor = true;
             // 
             // Cheat
             // 
